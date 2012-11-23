@@ -1,37 +1,39 @@
 //
-//  MAFirstViewController.m
+//  MAPhotoAlbumVC.m
 //  CNB
 //
 //  Created by 馬文培 on 12-11-22.
 //  Copyright (c) 2012年 馬文培. All rights reserved.
 //
 
-#import "MAFirstViewController.h"
+#import "MAPhotoAlbumVC.h"
 #import "SDWebImageDataSource.h"
 
-@interface MAFirstViewController ()
+@interface MAPhotoAlbumVC ()
 - (void)showActivityIndicator;
 - (void)hideActivityIndicator;
 @end
 
-@implementation MAFirstViewController
+@implementation MAPhotoAlbumVC
 - (void)dealloc
 {
     [activityIndicatorView_ release], activityIndicatorView_ = nil;
     [images_ release], images_ = nil;
     [super dealloc];
 }
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+{
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self) {
+        // Custom initialization
+    }
+    return self;
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-//    
-//    UINavigationController *newNavController = [[UINavigationController alloc] initWithRootViewController:self];
-//       
-//    [[newNavController navigationBar] setBarStyle:UIBarStyleBlack];
-//    [[newNavController navigationBar] setTranslucent:YES];
-
-    
-    
+	// Do any additional setup after loading the view.
     
     self.title = @"相册";
     
@@ -83,4 +85,5 @@
 {
     [[self activityIndicator] stopAnimating];
 }
+
 @end

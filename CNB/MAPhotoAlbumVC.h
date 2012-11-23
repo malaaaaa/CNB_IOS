@@ -1,5 +1,5 @@
 //
-//  MAFirstViewController.h
+//  MAPhotoAlbumVC.h
 //  CNB
 //
 //  Created by 馬文培 on 12-11-22.
@@ -11,12 +11,10 @@
 #import "KTThumbsViewController.h"
 
 @class SDWebImageDataSource;
-@interface MAFirstViewController : KTThumbsViewController{
+@interface MAPhotoAlbumVC : KTThumbsViewController{
 @private
     SDWebImageDataSource *images_;
     UIActivityIndicatorView *activityIndicatorView_;
-    IBOutlet UIView *view_;
 }
-
 
 @end
