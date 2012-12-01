@@ -8,8 +8,8 @@
 
 #import <Foundation/Foundation.h>
 #import "KTPhotoBrowserDataSource.h"
-#import "ASIHTTPRequest.h"
-#import "JSONKit.h"
+#import "PubInfo.h"
+
 
 
 @interface SDWebImageDataSource : NSObject <KTPhotoBrowserDataSource> {
