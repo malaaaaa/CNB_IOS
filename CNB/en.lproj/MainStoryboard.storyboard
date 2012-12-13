@@ -9,7 +9,7 @@
             <objects>
                 <viewController id="UPt-mN-SPK" customClass="MAPhotoAlbumVC" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="NFR-99-Pli">
-                        <rect key="frame" x="0.0" y="64" width="320" height="455"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="499"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -24,7 +24,10 @@
             <objects>
                 <navigationController definesPresentationContext="YES" id="Be7-Py-5WS" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="相册" image="first" id="pvL-OV-DbU"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ksk-Hy-ndH">
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackTranslucent"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="blackTranslucent" prompted="NO"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="blackTranslucent" id="ksk-Hy-ndH">
+                        <rect key="frame" x="0.0" y="0.0" width="0.0" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -40,7 +43,7 @@
             <objects>
                 <tableViewController id="jTF-ov-jUV" customClass="MAArticleTVC" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="49" sectionHeaderHeight="22" sectionFooterHeight="22" id="akA-WM-CNe">
-                        <rect key="frame" x="0.0" y="64" width="320" height="455"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="499"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -62,13 +65,14 @@
                                         </label>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tqz-RK-Fjo">
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="46" id="ocM-31-upQ"/>
+                                                <constraint firstAttribute="height" constant="44" id="5Vh-Ps-8lw"/>
+                                                <constraint firstAttribute="width" constant="44" id="U3u-th-UQI"/>
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6xM-IL-HB9">
                                             <constraints>
+                                                <constraint firstAttribute="height" constant="28" id="0DS-4g-Gx3"/>
                                                 <constraint firstAttribute="width" constant="245" id="U8Z-CS-Ffy"/>
-                                                <constraint firstAttribute="height" constant="28" id="kZ4-Fc-COw"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="9"/>
                                             <color key="textColor" red="0.40000000596046448" green="0.40000000596046448" blue="0.40000000596046448" alpha="1" colorSpace="calibratedRGB"/>
@@ -81,16 +85,15 @@
                                     <constraint firstItem="6xM-IL-HB9" firstAttribute="leading" secondItem="rcC-Qx-Dqz" secondAttribute="leading" type="default" id="1KD-bx-GnA"/>
                                     <constraint firstItem="6xM-IL-HB9" firstAttribute="top" secondItem="fg8-hc-pEs" secondAttribute="top" constant="20" type="default" id="JPX-FD-pXh"/>
                                     <constraint firstItem="tqz-RK-Fjo" firstAttribute="leading" secondItem="fg8-hc-pEs" secondAttribute="leading" constant="13" id="R1M-mw-DPG"/>
+                                    <constraint firstItem="tqz-RK-Fjo" firstAttribute="centerY" secondItem="fg8-hc-pEs" secondAttribute="centerY" type="default" id="Rce-Mx-cy4"/>
                                     <constraint firstItem="rcC-Qx-Dqz" firstAttribute="top" secondItem="fg8-hc-pEs" secondAttribute="top" type="default" id="VHk-Yg-zrf"/>
-                                    <constraint firstItem="tqz-RK-Fjo" firstAttribute="centerY" secondItem="fg8-hc-pEs" secondAttribute="centerY" type="default" id="jVI-dY-sym"/>
-                                    <constraint firstItem="tqz-RK-Fjo" firstAttribute="bottom" secondItem="6xM-IL-HB9" secondAttribute="bottom" type="default" id="npx-Hh-VNO"/>
                                     <constraint firstAttribute="trailing" secondItem="rcC-Qx-Dqz" secondAttribute="trailing" constant="20" type="default" id="tKH-gV-5ny"/>
                                 </constraints>
                                 <connections>
                                     <outlet property="_subTitle" destination="6xM-IL-HB9" id="1td-Va-Co8"/>
                                     <outlet property="_thumbnail" destination="tqz-RK-Fjo" id="ZI1-xF-9Tv"/>
                                     <outlet property="_title" destination="rcC-Qx-Dqz" id="P2h-wN-wxD"/>
-                                    <segue destination="JOL-n1-gCe" kind="push" trigger="accessoryAction" id="j0c-vY-d5h"/>
+                                    <segue destination="JOL-n1-gCe" kind="push" identifier="ArticelBodyVC" trigger="accessoryAction" id="j0c-vY-d5h"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -106,15 +109,16 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5pe-Ye-Kdy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1307" y="426"/>
+            <point key="canvasLocation" x="1454" y="-148"/>
         </scene>
         <!--Article BodyVC-->
         <scene sceneID="4Ls-zz-TgK">
             <objects>
                 <viewController storyboardIdentifier="MAArticleBodyVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="JOL-n1-gCe" customClass="MAArticleBodyVC" sceneMemberID="viewController">
                     <scrollView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="MSD-B0-6WT">
-                        <rect key="frame" x="0.0" y="64" width="320" height="455"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="499"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </scrollView>
                     <navigationItem key="navigationItem" id="Nwd-YD-L6Z"/>
                     <connections>
@@ -123,23 +127,30 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="muN-HU-M8I" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1836" y="420"/>
+            <point key="canvasLocation" x="2088" y="-140"/>
         </scene>
         <!--Navigation Controller - 话题-->
         <scene sceneID="feH-mk-nSO">
             <objects>
                 <navigationController definesPresentationContext="YES" id="v4B-ak-VhJ" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="话题" image="second" id="h0I-Qs-BeA"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Xog-FX-OIH">
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackTranslucent"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="blackTranslucent"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="blackTranslucent" id="Xog-FX-OIH">
+                        <rect key="frame" x="0.0" y="0.0" width="0.0" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" barStyle="blackTranslucent" id="Cmt-j7-f1O">
+                        <rect key="frame" x="0.0" y="524" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
                     <connections>
                         <segue destination="jTF-ov-jUV" kind="relationship" relationship="rootViewController" id="FRf-bK-x4A"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fX5-NN-yqp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="761" y="420"/>
+            <point key="canvasLocation" x="625" y="-52"/>
         </scene>
         <!--View Controller - 更多-->
         <scene sceneID="k4m-Ks-ggx">
@@ -169,37 +180,128 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qm2-g9-TvS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-225" y="1463"/>
+            <point key="canvasLocation" x="615" y="2287"/>
         </scene>
-        <!--View Controller - 作品-->
-        <scene sceneID="4jd-SA-YEJ">
+        <!--VideoTVC - 视频-->
+        <scene sceneID="hjV-qL-YU7">
             <objects>
-                <viewController id="DQn-Ha-I01" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Nho-NK-9vc">
-                        <rect key="frame" x="0.0" y="20" width="320" height="499"/>
+                <tableViewController id="8A8-pS-crp" customClass="MAVideoTVC" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="75" sectionHeaderHeight="22" sectionFooterHeight="22" id="bs3-vj-64E">
+                        <rect key="frame" x="0.0" y="64" width="320" height="455"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" restorationIdentifier="" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MACellVideo" rowHeight="75" id="D6q-nq-d8j" customClass="MACellVideo">
+                                <rect key="frame" x="0.0" y="22" width="320" height="75"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="74"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="videoplay.png" translatesAutoresizingMaskIntoConstraints="NO" id="CgT-wl-lz8">
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="70" id="GN4-hg-KtX"/>
+                                                <constraint firstAttribute="width" constant="70" id="fsm-oE-eDR"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="205" translatesAutoresizingMaskIntoConstraints="NO" id="gXd-Km-MNb">
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="39" id="WbK-MN-gho"/>
+                                                <constraint firstAttribute="width" constant="205" id="e3y-At-Kym"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </label>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="5条评论" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LIE-Cw-Lxc">
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="21" id="ljH-Jw-IQ8"/>
+                                                <constraint firstAttribute="width" constant="40" id="z2o-Ub-D5B"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                                <constraints>
+                                    <constraint firstItem="LIE-Cw-Lxc" firstAttribute="bottom" secondItem="CgT-wl-lz8" secondAttribute="bottom" type="default" id="GNr-tH-mzO"/>
+                                    <constraint firstItem="gXd-Km-MNb" firstAttribute="leading" secondItem="D6q-nq-d8j" secondAttribute="leading" constant="106" id="IqH-tX-7hw"/>
+                                    <constraint firstItem="CgT-wl-lz8" firstAttribute="top" secondItem="D6q-nq-d8j" secondAttribute="top" constant="4" id="O84-uZ-dO1"/>
+                                    <constraint firstAttribute="trailing" secondItem="LIE-Cw-Lxc" secondAttribute="trailing" constant="20" type="default" id="qCr-zE-peW"/>
+                                    <constraint firstItem="CgT-wl-lz8" firstAttribute="leading" secondItem="D6q-nq-d8j" secondAttribute="leading" constant="11" id="qHA-JC-Rhx"/>
+                                    <constraint firstItem="CgT-wl-lz8" firstAttribute="top" secondItem="gXd-Km-MNb" secondAttribute="top" type="default" id="qN1-tJ-BwS"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="_note" destination="LIE-Cw-Lxc" id="il0-lH-DFD"/>
+                                    <outlet property="_thumbnail" destination="CgT-wl-lz8" id="xGk-hz-7cb"/>
+                                    <outlet property="_title" destination="gXd-Km-MNb" id="bT2-Of-txK"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="8A8-pS-crp" id="aUN-VY-bkV"/>
+                            <outlet property="delegate" destination="8A8-pS-crp" id="0ID-mM-Jpd"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="视频" id="qZn-yx-wBe"/>
+                    <connections>
+                        <outlet property="_videoTableView" destination="bs3-vj-64E" id="1vA-l2-Er6"/>
+                        <segue destination="tdh-ym-BEA" kind="push" identifier="VideoBodyVC" id="LAW-HY-TEe"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eSj-0g-WdG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1333" y="1244"/>
+        </scene>
+        <!--Navigation Controller - 作品-->
+        <scene sceneID="nz9-xP-Opg">
+            <objects>
+                <navigationController definesPresentationContext="YES" id="LkH-7x-wEI" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="作品" id="yye-Gk-URX"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="kuG-Yn-mCj">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="8A8-pS-crp" kind="relationship" relationship="rootViewController" id="819-Rg-vTf"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ydb-Ai-7li" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="575" y="1244"/>
+        </scene>
+        <!--Video BodyVC-->
+        <scene sceneID="AGc-aF-k3Q">
+            <objects>
+                <viewController storyboardIdentifier="MAVideoBodyVC" id="tdh-ym-BEA" customClass="MAVideoBodyVC" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="17j-h2-v7d">
+                        <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="作品" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QAZ-Gz-8V7">
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="46" id="Qac-m2-wBa"/>
-                                    <constraint firstAttribute="width" constant="58" id="ehI-2e-dwL"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <containerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J8S-in-v7b">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <connections>
+                                    <segue destination="BRY-X6-qz7" kind="embed" id="n1O-Rz-h29"/>
+                                </connections>
+                            </containerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="QAZ-Gz-8V7" firstAttribute="top" secondItem="Nho-NK-9vc" secondAttribute="top" constant="227" id="bu5-BZ-IpV"/>
-                            <constraint firstItem="QAZ-Gz-8V7" firstAttribute="centerX" secondItem="Nho-NK-9vc" secondAttribute="centerX" type="default" id="jON-I9-fZ0"/>
+                            <constraint firstItem="J8S-in-v7b" firstAttribute="centerX" secondItem="17j-h2-v7d" secondAttribute="centerX" type="default" id="Mpp-gk-Fod"/>
+                            <constraint firstItem="J8S-in-v7b" firstAttribute="top" secondItem="17j-h2-v7d" secondAttribute="top" constant="232" id="lA8-ZH-9Kb"/>
+                            <constraint firstItem="J8S-in-v7b" firstAttribute="leading" secondItem="17j-h2-v7d" secondAttribute="leading" constant="10" id="xwC-H0-0C8"/>
+                            <constraint firstItem="J8S-in-v7b" firstAttribute="bottom" secondItem="17j-h2-v7d" secondAttribute="bottom" type="default" id="zYC-3M-kAq"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="作品" id="Bfq-Py-jSk"/>
+                    <navigationItem key="navigationItem" id="lNC-ev-VXR"/>
+                    <connections>
+                        <outlet property="view" destination="17j-h2-v7d" id="iU2-4B-vod"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Jqz-ob-NBp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gmU-FB-HFy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="355" y="1117"/>
+            <point key="canvasLocation" x="2156" y="1262"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="15">
@@ -214,18 +316,72 @@
                     <connections>
                         <segue destination="Be7-Py-5WS" kind="relationship" relationship="viewControllers" id="4Hy-DL-9DK"/>
                         <segue destination="v4B-ak-VhJ" kind="relationship" relationship="viewControllers" id="qwS-qs-7I6"/>
-                        <segue destination="DQn-Ha-I01" kind="relationship" relationship="viewControllers" id="DJ4-fa-D3U"/>
-                        <segue destination="2cN-oZ-Pta" kind="relationship" relationship="viewControllers" id="1sC-Yo-FbW"/>
+                        <segue destination="LkH-7x-wEI" kind="relationship" relationship="viewControllers" id="76U-SN-gst"/>
+                        <segue destination="2cN-oZ-Pta" kind="relationship" relationship="viewControllers" id="JFQ-nF-XAP"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="14" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-990" y="114"/>
+            <point key="canvasLocation" x="-870" y="1114"/>
+        </scene>
+        <!--Video CommentTVC-->
+        <scene sceneID="48K-TP-ej1">
+            <objects>
+                <tableViewController id="BRY-X6-qz7" customClass="MAVideoCommentTVC" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="lYI-w6-xCp">
+                        <rect key="frame" x="0.0" y="0.0" width="300" height="223"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="MACellVideoComment" id="Nm6-wL-pWH" customClass="MACellVideoComment">
+                                <rect key="frame" x="0.0" y="22" width="300" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="300" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="head.png" translatesAutoresizingMaskIntoConstraints="NO" id="OIs-A0-K7f">
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="42" id="Leq-yI-dHD"/>
+                                                <constraint firstAttribute="width" constant="42" id="iWd-Xl-pDA"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="这里是评论" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sIE-fh-qhp">
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="31" id="cKF-zA-Pff"/>
+                                                <constraint firstAttribute="width" constant="138" id="fHu-Fq-Jpu"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                                <constraints>
+                                    <constraint firstItem="sIE-fh-qhp" firstAttribute="bottom" secondItem="OIs-A0-K7f" secondAttribute="bottom" type="default" id="Ibk-rs-fHJ"/>
+                                    <constraint firstItem="OIs-A0-K7f" firstAttribute="top" secondItem="Nm6-wL-pWH" secondAttribute="top" type="default" id="TMu-ZX-4wA"/>
+                                    <constraint firstItem="sIE-fh-qhp" firstAttribute="leading" secondItem="Nm6-wL-pWH" secondAttribute="leading" constant="47" id="mNM-u4-cIL"/>
+                                    <constraint firstAttribute="trailing" secondItem="OIs-A0-K7f" secondAttribute="trailing" constant="15" id="q4K-aj-Qdh"/>
+                                </constraints>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="BRY-X6-qz7" id="5lz-47-cGm"/>
+                            <outlet property="delegate" destination="BRY-X6-qz7" id="nj3-BC-Kpc"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cVw-bo-z4U" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2630" y="1634"/>
         </scene>
     </scenes>
     <resources>
         <image name="first" width="16" height="16"/>
+        <image name="head.png" width="88" height="88"/>
         <image name="second" width="16" height="16"/>
+        <image name="videoplay.png" width="150" height="150"/>
     </resources>
     <classes>
         <class className="KTThumbsViewController" superclassName="UIViewController">
@@ -251,8 +407,31 @@
                 <relationship kind="outlet" name="_title" candidateClass="UILabel"/>
             </relationships>
         </class>
+        <class className="MACellVideo" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MACellVideo.h"/>
+            <relationships>
+                <relationship kind="outlet" name="_note" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="_thumbnail" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="_title" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="MACellVideoComment" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MACellVideoComment.h"/>
+        </class>
         <class className="MAPhotoAlbumVC" superclassName="KTThumbsViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/MAPhotoAlbumVC.h"/>
+        </class>
+        <class className="MAVideoBodyVC" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MAVideoBodyVC.h"/>
+        </class>
+        <class className="MAVideoCommentTVC" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MAVideoCommentTVC.h"/>
+        </class>
+        <class className="MAVideoTVC" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MAVideoTVC.h"/>
+            <relationships>
+                <relationship kind="outlet" name="_videoTableView" candidateClass="UITableView"/>
+            </relationships>
         </class>
         <class className="NSLayoutConstraint" superclassName="NSObject">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>

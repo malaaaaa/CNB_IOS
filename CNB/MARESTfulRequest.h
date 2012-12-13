@@ -10,7 +10,8 @@
 #import "ASIHTTPRequest.h"
 #import "JSONKit.h"
 
-static NSString *hostname =@"http://192.168.1.101:8080/CNB/webresources";
+static NSString *hostname =@"http://10.2.17.105:8080/CNB/webresources";
+
 
 @interface MARESTfulRequest : NSObject
 

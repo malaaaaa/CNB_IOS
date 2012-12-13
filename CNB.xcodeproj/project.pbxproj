@@ -7,8 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D32462741676F68400D7B0EB /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D32462711676F67000D7B0EB /* MediaPlayer.framework */; };
+		D349341F16786E1100831F7B /* head.png in Resources */ = {isa = PBXBuildFile; fileRef = D349341E16786E1100831F7B /* head.png */; };
+		D349342616786F0200831F7B /* MACellVideoComment.m in Sources */ = {isa = PBXBuildFile; fileRef = D349342516786F0200831F7B /* MACellVideoComment.m */; };
+		D349342C1678758B00831F7B /* MAVideoCommentTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D349342B1678758B00831F7B /* MAVideoCommentTVC.m */; };
+		D349348E1678829800831F7B /* videoplay.png in Resources */ = {isa = PBXBuildFile; fileRef = D349348D1678829800831F7B /* videoplay.png */; };
 		D351804D1664C4B400FE35EB /* MACellArticle.m in Sources */ = {isa = PBXBuildFile; fileRef = D351804C1664C4B400FE35EB /* MACellArticle.m */; };
 		D35961121669DF33004D8642 /* MARESTfulRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = D35961111669DF33004D8642 /* MARESTfulRequest.m */; };
+		D368F8FD1678B26800840380 /* MAVideo.m in Sources */ = {isa = PBXBuildFile; fileRef = D368F8FC1678B26800840380 /* MAVideo.m */; };
 		D3695281165DCA7200A5AAB9 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3695280165DCA7200A5AAB9 /* UIKit.framework */; };
 		D3695283165DCA7200A5AAB9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3695282165DCA7200A5AAB9 /* Foundation.framework */; };
 		D3695285165DCA7200A5AAB9 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3695284165DCA7200A5AAB9 /* CoreGraphics.framework */; };
@@ -74,10 +80,15 @@
 		D3695357165F05D900A5AAB9 /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = D3695356165F05D900A5AAB9 /* JSONKit.m */; };
 		D3752977166343090006DFDA /* MAArticleTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D3752976166343090006DFDA /* MAArticleTVC.m */; };
 		D37BC42A16675621008E7B68 /* MAArticleBody.m in Sources */ = {isa = PBXBuildFile; fileRef = D37BC42916675621008E7B68 /* MAArticleBody.m */; };
+		D37F3EFE1676258C00C9FAE2 /* MAVideoTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D37F3EFD1676258C00C9FAE2 /* MAVideoTVC.m */; };
+		D37F3F02167625C400C9FAE2 /* MACellVideo.m in Sources */ = {isa = PBXBuildFile; fileRef = D37F3F01167625C400C9FAE2 /* MACellVideo.m */; };
+		D37F3F051676271700C9FAE2 /* MAVideoBodyVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D37F3F041676271700C9FAE2 /* MAVideoBodyVC.m */; };
 		D3E1002A1665E3CB00AD6928 /* MAArticleBodyVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D3E100291665E3CB00AD6928 /* MAArticleBodyVC.m */; };
 		D3E1007C16661DC100AD6928 /* MAArticle.m in Sources */ = {isa = PBXBuildFile; fileRef = D3E1007B16661DC100AD6928 /* MAArticle.m */; };
 		D3EF7D26165F4ED5007D46CB /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = D3EF7D25165F4ED5007D46CB /* Default.png */; };
 		D3EF7D28165F4F46007D46CB /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D3EF7D27165F4F46007D46CB /* Default@2x.png */; };
+		D3FA32FA1677523B00D88319 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3FA32F91677523B00D88319 /* AVFoundation.framework */; };
+		D3FA32FD1677525C00D88319 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3FA32FC1677525C00D88319 /* CoreMedia.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -91,10 +102,19 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D32462711676F67000D7B0EB /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		D349341E16786E1100831F7B /* head.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = head.png; sourceTree = "<group>"; };
+		D349342416786F0200831F7B /* MACellVideoComment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MACellVideoComment.h; sourceTree = "<group>"; };
+		D349342516786F0200831F7B /* MACellVideoComment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MACellVideoComment.m; sourceTree = "<group>"; };
+		D349342A1678758B00831F7B /* MAVideoCommentTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MAVideoCommentTVC.h; sourceTree = "<group>"; };
+		D349342B1678758B00831F7B /* MAVideoCommentTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MAVideoCommentTVC.m; sourceTree = "<group>"; };
+		D349348D1678829800831F7B /* videoplay.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = videoplay.png; sourceTree = "<group>"; };
 		D351804B1664C4B400FE35EB /* MACellArticle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MACellArticle.h; sourceTree = "<group>"; };
 		D351804C1664C4B400FE35EB /* MACellArticle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MACellArticle.m; sourceTree = "<group>"; };
 		D35961101669DF33004D8642 /* MARESTfulRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MARESTfulRequest.h; sourceTree = "<group>"; };
 		D35961111669DF33004D8642 /* MARESTfulRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MARESTfulRequest.m; sourceTree = "<group>"; };
+		D368F8FB1678B26800840380 /* MAVideo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MAVideo.h; sourceTree = "<group>"; };
+		D368F8FC1678B26800840380 /* MAVideo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MAVideo.m; sourceTree = "<group>"; };
 		D369527C165DCA7200A5AAB9 /* CNB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CNB.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3695280165DCA7200A5AAB9 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		D3695282165DCA7200A5AAB9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -188,12 +208,20 @@
 		D375297A1663466E0006DFDA /* PubInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PubInfo.h; sourceTree = "<group>"; };
 		D37BC42816675621008E7B68 /* MAArticleBody.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MAArticleBody.h; sourceTree = "<group>"; };
 		D37BC42916675621008E7B68 /* MAArticleBody.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MAArticleBody.m; sourceTree = "<group>"; };
+		D37F3EFC1676258C00C9FAE2 /* MAVideoTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MAVideoTVC.h; sourceTree = "<group>"; };
+		D37F3EFD1676258C00C9FAE2 /* MAVideoTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MAVideoTVC.m; sourceTree = "<group>"; };
+		D37F3F00167625C400C9FAE2 /* MACellVideo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MACellVideo.h; sourceTree = "<group>"; };
+		D37F3F01167625C400C9FAE2 /* MACellVideo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MACellVideo.m; sourceTree = "<group>"; };
+		D37F3F031676271700C9FAE2 /* MAVideoBodyVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MAVideoBodyVC.h; sourceTree = "<group>"; };
+		D37F3F041676271700C9FAE2 /* MAVideoBodyVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MAVideoBodyVC.m; sourceTree = "<group>"; };
 		D3E100281665E3CB00AD6928 /* MAArticleBodyVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MAArticleBodyVC.h; sourceTree = "<group>"; };
 		D3E100291665E3CB00AD6928 /* MAArticleBodyVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MAArticleBodyVC.m; sourceTree = "<group>"; };
 		D3E1007A16661DC100AD6928 /* MAArticle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MAArticle.h; sourceTree = "<group>"; };
 		D3E1007B16661DC100AD6928 /* MAArticle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MAArticle.m; sourceTree = "<group>"; };
 		D3EF7D25165F4ED5007D46CB /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = ../Default.png; sourceTree = "<group>"; };
 		D3EF7D27165F4F46007D46CB /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "../Default@2x.png"; sourceTree = "<group>"; };
+		D3FA32F91677523B00D88319 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		D3FA32FC1677525C00D88319 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -201,6 +229,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D3FA32FD1677525C00D88319 /* CoreMedia.framework in Frameworks */,
+				D3FA32FA1677523B00D88319 /* AVFoundation.framework in Frameworks */,
+				D32462741676F68400D7B0EB /* MediaPlayer.framework in Frameworks */,
 				D36952FA165DCEA200A5AAB9 /* libz.1.2.5.dylib in Frameworks */,
 				D36952F8165DCE9400A5AAB9 /* libobjc.A.dylib in Frameworks */,
 				D36952F6165DCE8000A5AAB9 /* SystemConfiguration.framework in Frameworks */,
@@ -250,6 +281,9 @@
 			children = (
 				D36952F9165DCEA200A5AAB9 /* libz.1.2.5.dylib */,
 				D36952F7165DCE9400A5AAB9 /* libobjc.A.dylib */,
+				D3FA32FC1677525C00D88319 /* CoreMedia.framework */,
+				D3FA32F91677523B00D88319 /* AVFoundation.framework */,
+				D32462711676F67000D7B0EB /* MediaPlayer.framework */,
 				D36952F5165DCE8000A5AAB9 /* SystemConfiguration.framework */,
 				D36952F3165DCE7400A5AAB9 /* QuartzCore.framework */,
 				D36952F1165DCE6100A5AAB9 /* MobileCoreServices.framework */,
@@ -396,6 +430,16 @@
 				D351804C1664C4B400FE35EB /* MACellArticle.m */,
 				D3E100281665E3CB00AD6928 /* MAArticleBodyVC.h */,
 				D3E100291665E3CB00AD6928 /* MAArticleBodyVC.m */,
+				D37F3EFC1676258C00C9FAE2 /* MAVideoTVC.h */,
+				D37F3EFD1676258C00C9FAE2 /* MAVideoTVC.m */,
+				D37F3F00167625C400C9FAE2 /* MACellVideo.h */,
+				D37F3F01167625C400C9FAE2 /* MACellVideo.m */,
+				D37F3F031676271700C9FAE2 /* MAVideoBodyVC.h */,
+				D37F3F041676271700C9FAE2 /* MAVideoBodyVC.m */,
+				D349342416786F0200831F7B /* MACellVideoComment.h */,
+				D349342516786F0200831F7B /* MACellVideoComment.m */,
+				D349342A1678758B00831F7B /* MAVideoCommentTVC.h */,
+				D349342B1678758B00831F7B /* MAVideoCommentTVC.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -403,6 +447,8 @@
 		D3695326165DD6CE00A5AAB9 /* image */ = {
 			isa = PBXGroup;
 			children = (
+				D349348D1678829800831F7B /* videoplay.png */,
+				D349341E16786E1100831F7B /* head.png */,
 				D3EF7D27165F4F46007D46CB /* Default@2x.png */,
 				D3EF7D25165F4ED5007D46CB /* Default.png */,
 				D3695352165F00E800A5AAB9 /* photoDefault.png */,
@@ -443,6 +489,8 @@
 				D3E1007B16661DC100AD6928 /* MAArticle.m */,
 				D37BC42816675621008E7B68 /* MAArticleBody.h */,
 				D37BC42916675621008E7B68 /* MAArticleBody.m */,
+				D368F8FB1678B26800840380 /* MAVideo.h */,
+				D368F8FC1678B26800840380 /* MAVideo.m */,
 			);
 			name = DataBase;
 			sourceTree = "<group>";
@@ -531,6 +579,8 @@
 				D3695353165F00E800A5AAB9 /* photoDefault.png in Resources */,
 				D3EF7D26165F4ED5007D46CB /* Default.png in Resources */,
 				D3EF7D28165F4F46007D46CB /* Default@2x.png in Resources */,
+				D349341F16786E1100831F7B /* head.png in Resources */,
+				D349348E1678829800831F7B /* videoplay.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -598,6 +648,12 @@
 				D3E1007C16661DC100AD6928 /* MAArticle.m in Sources */,
 				D37BC42A16675621008E7B68 /* MAArticleBody.m in Sources */,
 				D35961121669DF33004D8642 /* MARESTfulRequest.m in Sources */,
+				D37F3EFE1676258C00C9FAE2 /* MAVideoTVC.m in Sources */,
+				D37F3F02167625C400C9FAE2 /* MACellVideo.m in Sources */,
+				D37F3F051676271700C9FAE2 /* MAVideoBodyVC.m in Sources */,
+				D349342616786F0200831F7B /* MACellVideoComment.m in Sources */,
+				D349342C1678758B00831F7B /* MAVideoCommentTVC.m in Sources */,
+				D368F8FD1678B26800840380 /* MAVideo.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

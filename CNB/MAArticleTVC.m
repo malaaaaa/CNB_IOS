@@ -64,9 +64,9 @@
 }
 - (void)didReceiveMemoryWarning
 {
+    self.articleArray=nil;
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-    self.articleArray=nil;
 }
 
 #pragma mark - Table view data source
