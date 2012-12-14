@@ -83,8 +83,11 @@
 		D37F3EFE1676258C00C9FAE2 /* MAVideoTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D37F3EFD1676258C00C9FAE2 /* MAVideoTVC.m */; };
 		D37F3F02167625C400C9FAE2 /* MACellVideo.m in Sources */ = {isa = PBXBuildFile; fileRef = D37F3F01167625C400C9FAE2 /* MACellVideo.m */; };
 		D37F3F051676271700C9FAE2 /* MAVideoBodyVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D37F3F041676271700C9FAE2 /* MAVideoBodyVC.m */; };
+		D3BE9F4F16797F8B0088640E /* cuijian.png in Resources */ = {isa = PBXBuildFile; fileRef = D3BE9F4E16797F8B0088640E /* cuijian.png */; };
+		D3BE9F52167981C90088640E /* liuyuan.png in Resources */ = {isa = PBXBuildFile; fileRef = D3BE9F51167981C90088640E /* liuyuan.png */; };
 		D3E1002A1665E3CB00AD6928 /* MAArticleBodyVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D3E100291665E3CB00AD6928 /* MAArticleBodyVC.m */; };
 		D3E1007C16661DC100AD6928 /* MAArticle.m in Sources */ = {isa = PBXBuildFile; fileRef = D3E1007B16661DC100AD6928 /* MAArticle.m */; };
+		D3ED585B1679CD62002ABC8E /* MABandMembersVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D3ED585A1679CD62002ABC8E /* MABandMembersVC.m */; };
 		D3EF7D26165F4ED5007D46CB /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = D3EF7D25165F4ED5007D46CB /* Default.png */; };
 		D3EF7D28165F4F46007D46CB /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D3EF7D27165F4F46007D46CB /* Default@2x.png */; };
 		D3FA32FA1677523B00D88319 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3FA32F91677523B00D88319 /* AVFoundation.framework */; };
@@ -214,10 +217,14 @@
 		D37F3F01167625C400C9FAE2 /* MACellVideo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MACellVideo.m; sourceTree = "<group>"; };
 		D37F3F031676271700C9FAE2 /* MAVideoBodyVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MAVideoBodyVC.h; sourceTree = "<group>"; };
 		D37F3F041676271700C9FAE2 /* MAVideoBodyVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MAVideoBodyVC.m; sourceTree = "<group>"; };
+		D3BE9F4E16797F8B0088640E /* cuijian.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cuijian.png; sourceTree = "<group>"; };
+		D3BE9F51167981C90088640E /* liuyuan.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = liuyuan.png; sourceTree = "<group>"; };
 		D3E100281665E3CB00AD6928 /* MAArticleBodyVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MAArticleBodyVC.h; sourceTree = "<group>"; };
 		D3E100291665E3CB00AD6928 /* MAArticleBodyVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MAArticleBodyVC.m; sourceTree = "<group>"; };
 		D3E1007A16661DC100AD6928 /* MAArticle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MAArticle.h; sourceTree = "<group>"; };
 		D3E1007B16661DC100AD6928 /* MAArticle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MAArticle.m; sourceTree = "<group>"; };
+		D3ED58591679CD62002ABC8E /* MABandMembersVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MABandMembersVC.h; sourceTree = "<group>"; };
+		D3ED585A1679CD62002ABC8E /* MABandMembersVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MABandMembersVC.m; sourceTree = "<group>"; };
 		D3EF7D25165F4ED5007D46CB /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = ../Default.png; sourceTree = "<group>"; };
 		D3EF7D27165F4F46007D46CB /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "../Default@2x.png"; sourceTree = "<group>"; };
 		D3FA32F91677523B00D88319 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -440,6 +447,8 @@
 				D349342516786F0200831F7B /* MACellVideoComment.m */,
 				D349342A1678758B00831F7B /* MAVideoCommentTVC.h */,
 				D349342B1678758B00831F7B /* MAVideoCommentTVC.m */,
+				D3ED58591679CD62002ABC8E /* MABandMembersVC.h */,
+				D3ED585A1679CD62002ABC8E /* MABandMembersVC.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -447,6 +456,8 @@
 		D3695326165DD6CE00A5AAB9 /* image */ = {
 			isa = PBXGroup;
 			children = (
+				D3BE9F51167981C90088640E /* liuyuan.png */,
+				D3BE9F4E16797F8B0088640E /* cuijian.png */,
 				D349348D1678829800831F7B /* videoplay.png */,
 				D349341E16786E1100831F7B /* head.png */,
 				D3EF7D27165F4F46007D46CB /* Default@2x.png */,
@@ -581,6 +592,8 @@
 				D3EF7D28165F4F46007D46CB /* Default@2x.png in Resources */,
 				D349341F16786E1100831F7B /* head.png in Resources */,
 				D349348E1678829800831F7B /* videoplay.png in Resources */,
+				D3BE9F4F16797F8B0088640E /* cuijian.png in Resources */,
+				D3BE9F52167981C90088640E /* liuyuan.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -654,6 +667,7 @@
 				D349342616786F0200831F7B /* MACellVideoComment.m in Sources */,
 				D349342C1678758B00831F7B /* MAVideoCommentTVC.m in Sources */,
 				D368F8FD1678B26800840380 /* MAVideo.m in Sources */,
+				D3ED585B1679CD62002ABC8E /* MABandMembersVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

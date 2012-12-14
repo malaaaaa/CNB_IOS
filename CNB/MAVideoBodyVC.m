@@ -49,10 +49,10 @@
     
     NSLog(@"url=%@",_curVideo.URL);
     // 设置视频播放器
-    self.moviePlayer = [[MPMoviePlayerController alloc] initWithContentURL:[NSURL URLWithString:_curVideo.URL]];
+    self.moviePlayer = [[[MPMoviePlayerController alloc] initWithContentURL:[NSURL URLWithString:_curVideo.URL]] autorelease];
     self.moviePlayer.allowsAirPlay = YES;
 //    self.moviePlayer.shouldAutoplay=NO;
-    [self.moviePlayer.view setFrame:CGRectMake(10, 10, 300, 200)];
+    [self.moviePlayer.view setFrame:CGRectMake(10, 50, 300, 200)];
     
     // 将moviePlayer的视图添加到当前视图中
     [self.view addSubview:self.moviePlayer.view];
@@ -77,11 +77,12 @@
     [[NSNotificationCenter defaultCenter]
      removeObserver:self name:MPMoviePlayerPlaybackDidFinishNotification object:self.moviePlayer];
     // 将视频视图从父视图中删除
-    [self.moviePlayer.view removeFromSuperview];
+//    [self.moviePlayer.view removeFromSuperview];
 }
 - (void)didReceiveMemoryWarning
 {
-    self.moviePlayer=nil;
+
+//    self.moviePlayer=nil;
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 
