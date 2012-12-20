@@ -65,5 +65,44 @@
     
     return array;
 }
-
++ (NSMutableArray *)getJSONArrayByPath:(NSString *)path
+                               JSONKey:(NSString *)key
+                             Parameter:(NSString *)para
+                                ErrorStr:(NSString **)code
+{
+    NSMutableArray *array =[[[NSMutableArray alloc] init] autorelease];
+    NSURL *url = nil;
+    if (para) {
+        url = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@/%@",hostname,path,para]];
+    }
+    else{
+        url = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@",hostname,path]];
+        
+    }
+    ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:url];
+    [request startSynchronous];
+    NSLog(@"Request URL=[%@]",url);
+    NSError *error = [request error];
+    if (!error) {
+        NSData *response = [request responseData];
+        NSDictionary *rootBuf = [response objectFromJSONData];
+        NSLog(@"jsonstring=%@",[rootBuf JSONString]);
+        id body = [rootBuf objectForKey:key];
+        //处理服务器端返回单条数据的JSON格式不带[]的情况
+        if ([body isKindOfClass:[NSDictionary class]]) {
+            [array addObject:body];
+        }
+        if ([body isKindOfClass:[NSArray class]]) {
+            array = (NSMutableArray *)body;
+        }
+        *code=REQUEST_SUEESSS;
+    }
+    else
+    {
+        NSLog(@"WebService Error [%@]",error);
+        *code=REQUEST_FAIL;
+    }
+    
+    return array;
+}
 @end

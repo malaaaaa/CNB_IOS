@@ -14,13 +14,54 @@
 @synthesize id=_id;
 @synthesize type=_type;
 @synthesize content=_content;
--(void)dealloc
-{
-    [_articleID release];
-    [_sort release];
-    [_id release];
-    [_type release];
-    [_content release];
-    [super dealloc];
+
+- (id)initWithAttributes:(NSDictionary *)attributes {
+    self = [super init];
+    if (!self) {
+        return nil;
+    }
+    _content = [attributes   valueForKeyPath:@"content"];
+    _sort = [attributes   valueForKeyPath:@"sort"];
+    _type = [attributes   valueForKeyPath:@"type"];
+    
+    
+    return self;
+}
++ (void)getArticleBodysWithBlock:(void (^)(NSArray *articleBody, NSError *error))block Parameter:(NSString *)para {
+    NSString *path =[NSString stringWithFormat:@"%@/%@",@"articlebody",para];
+
+    [[AFAppDotNetAPIClient sharedClient] getPath:path parameters:nil success:^(AFHTTPRequestOperation *operation, id JSON) {
+        NSMutableArray *mutablePosts=nil;
+        //id body是为了处理服务端单条数据的JSON格式没有[]导致直接解析成NSArray失败而存在
+        id body = [JSON valueForKeyPath:@"vArticlebody"];
+        //单条数据
+        if ([body isKindOfClass:[NSDictionary class]]) {
+            MAArticleBody *articleBody = [[MAArticleBody alloc] initWithAttributes:body];
+            mutablePosts = [NSMutableArray arrayWithCapacity:1];
+            [mutablePosts addObject:articleBody];
+            
+        }
+        //多条数据,可直接转化为数组
+        //NSArray *articlesFromResponse = [JSON valueForKeyPath:@"vArticle"];
+        else{
+            mutablePosts = [NSMutableArray arrayWithCapacity:[body count]];
+            for (NSDictionary *attributes in body) {
+                MAArticleBody *articleBody = [[MAArticleBody alloc] initWithAttributes:attributes];
+                [mutablePosts addObject:articleBody];
+                
+            }
+        }
+        
+        NSLog(@"des===%d",[mutablePosts count]);
+        
+        if (block) {
+            
+            block([NSArray arrayWithArray:mutablePosts], nil);
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        if (block) {
+            block([NSArray array], error);
+        }
+    }];
 }
 @end

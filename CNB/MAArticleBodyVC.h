@@ -11,15 +11,11 @@
 #import "MAArticle.h"
 #import "MAArticleBody.h"
 
-@interface MAArticleBodyVC : UIViewController{
-    IBOutlet UIScrollView *_scrollView;
-    MAArticle *_curArticle;
-    NSArray *_array;
-}
+@interface MAArticleBodyVC : UIViewController
 
-@property(nonatomic,retain) UIScrollView *scrollView;
-@property(nonatomic,retain) MAArticle *curArticle;
-@property(nonatomic,retain) NSArray *array;
+@property(nonatomic,strong) IBOutlet UIScrollView *scrollView;
+@property(nonatomic,strong) MAArticle *curArticle;
+@property(nonatomic,strong) NSArray *array;
 
 - (void)setCurentArticle:(MAArticle *)article;
 - (void)fillCurrentPage;

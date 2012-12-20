@@ -12,3 +12,11 @@
     #import <UIKit/UIKit.h>
     #import <Foundation/Foundation.h>
 #endif
+
+#ifndef __OPTIMIZE__
+# define NSLog(...) NSLog(__VA_ARGS__)
+#else
+# define NSLog(...) {}
+#endif
+
+#define RGB(A,B,C) [UIColor colorWithRed:A/255.0 green:B/255.0 blue:C/255.0 alpha:1.0]

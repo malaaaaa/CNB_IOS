@@ -11,14 +11,14 @@
 #import "MACellArticle.h"
 #import "MAArticleBodyVC.h"
 #import "MAArticle.h"
+#import "EGORefreshTableHeaderView.h"
 
-@interface MAArticleTVC : UITableViewController{
-    IBOutlet UITableView *_articleTableView;
-    NSArray *_array;
-    NSMutableArray *_articleArray;
-}
+@interface MAArticleTVC : UITableViewController<EGORefreshTableHeaderDelegate,UIScrollViewDelegate>
 
-@property (nonatomic,retain) UITableView *articleTableView;
-@property (nonatomic,retain) NSArray *array;
-@property (nonatomic,retain) NSMutableArray *articleArray;
+
+@property (nonatomic,strong) IBOutlet UITableView *articleTableView;
+@property (nonatomic,strong) NSArray *array;
+@property (nonatomic,strong) EGORefreshTableHeaderView *refreshHeaderView;
+@property (nonatomic,strong) IBOutlet UIActivityIndicatorView *activityIndicatorView;
+@property (nonatomic,strong) NSString *upDown;
 @end

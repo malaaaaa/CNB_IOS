@@ -7,17 +7,16 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "PubInfo.h"
 
-@interface MAArticleBody : NSObject{
-    NSString *_articleID;
-    NSString *_sort;
-    NSString *_content;
-    NSString *_id;
-    NSString *_type;
-}
-@property(nonatomic,copy) NSString *articleID;
-@property(nonatomic,copy) NSString *sort;
-@property(nonatomic,copy) NSString *content;
-@property(nonatomic,copy) NSString *id;
-@property(nonatomic,copy) NSString *type;
+@interface MAArticleBody : NSObject
+
+@property(nonatomic,strong) NSString *articleID;
+@property(nonatomic,strong) NSString *sort;
+@property(nonatomic,strong) NSString *content;
+@property(nonatomic,strong) NSString *id;
+@property(nonatomic,strong) NSString *type;
+
+- (id)initWithAttributes:(NSDictionary *)attributes;
++ (void)getArticleBodysWithBlock:(void (^)(NSArray *articleBody, NSError *error))block Parameter:(NSString *)para;
 @end
