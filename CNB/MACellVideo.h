@@ -8,12 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MACellVideo : UITableViewCell{
-    IBOutlet UILabel *_title;
-    IBOutlet UILabel *_note;
-    IBOutlet UIImageView *_thumbnail;
-}
-@property (nonatomic,retain) UILabel *title;
-@property (nonatomic,retain) UILabel *note;
-@property (nonatomic,retain) UIImageView *thumbnail;
+@interface MACellVideo : UITableViewCell
+
+@property (nonatomic,strong) IBOutlet UILabel *title;
+@property (nonatomic,strong) IBOutlet UILabel *note;
+@property (nonatomic,strong) IBOutlet UIImageView *thumbnail;
 @end

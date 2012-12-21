@@ -29,34 +29,34 @@
 }
 + (void)getArticleBodysWithBlock:(void (^)(NSArray *articleBody, NSError *error))block Parameter:(NSString *)para {
     NSString *path =[NSString stringWithFormat:@"%@/%@",@"articlebody",para];
-
+    
     [[AFAppDotNetAPIClient sharedClient] getPath:path parameters:nil success:^(AFHTTPRequestOperation *operation, id JSON) {
-        NSMutableArray *mutablePosts=nil;
+        NSMutableArray *mutableObjects=nil;
         //id body是为了处理服务端单条数据的JSON格式没有[]导致直接解析成NSArray失败而存在
         id body = [JSON valueForKeyPath:@"vArticlebody"];
         //单条数据
         if ([body isKindOfClass:[NSDictionary class]]) {
             MAArticleBody *articleBody = [[MAArticleBody alloc] initWithAttributes:body];
-            mutablePosts = [NSMutableArray arrayWithCapacity:1];
-            [mutablePosts addObject:articleBody];
+            mutableObjects = [NSMutableArray arrayWithCapacity:1];
+            [mutableObjects addObject:articleBody];
             
         }
         //多条数据,可直接转化为数组
         //NSArray *articlesFromResponse = [JSON valueForKeyPath:@"vArticle"];
         else{
-            mutablePosts = [NSMutableArray arrayWithCapacity:[body count]];
+            mutableObjects = [NSMutableArray arrayWithCapacity:[body count]];
             for (NSDictionary *attributes in body) {
                 MAArticleBody *articleBody = [[MAArticleBody alloc] initWithAttributes:attributes];
-                [mutablePosts addObject:articleBody];
+                [mutableObjects addObject:articleBody];
                 
             }
         }
         
-        NSLog(@"des===%d",[mutablePosts count]);
+        NSLog(@"des===%d",[mutableObjects count]);
         
         if (block) {
             
-            block([NSArray arrayWithArray:mutablePosts], nil);
+            block([NSArray arrayWithArray:mutableObjects], nil);
         }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         if (block) {

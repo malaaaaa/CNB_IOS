@@ -8,7 +8,6 @@
 
 #ifndef CNB_PubInfo_h
 #define CNB_PubInfo_h
-#import "MARESTfulRequest.h"
 #import "ZNLog.h"
 #import "AFAppDotNetAPIClient.h"
 

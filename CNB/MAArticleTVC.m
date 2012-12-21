@@ -19,8 +19,8 @@
 @synthesize upDown=_upDown;
 @synthesize activityIndicatorView=_activityIndicatorView;
 
-NSString *code=nil;
-BOOL _reloading=NO;
+//NSString *code=nil;
+static BOOL _reloading=NO;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -39,18 +39,10 @@ BOOL _reloading=NO;
     [self.activityIndicatorView startAnimating];
     [self reload];
     
-    //定义下拉刷新历史记录    
+    //定义下拉刷新历史记录
     _refreshHeaderView = [[EGORefreshTableHeaderView alloc] initWithFrame:CGRectMake(0.0f, -55, 320, 55)];
     _refreshHeaderView.delegate = self;
     [_articleTableView addSubview:_refreshHeaderView];
-    
-    
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    
     
 }
 
@@ -107,10 +99,10 @@ BOOL _reloading=NO;
     [self.navigationController pushViewController:articleBody animated:YES];
     
 }
-
-#pragma mark -
-#pragma mark 同步方式调用服务
 /*
+ #pragma mark -
+ #pragma mark 同步方式调用服务
+ 
  - (void)requestSYNC
  {
  
@@ -138,7 +130,7 @@ BOOL _reloading=NO;
  [alert show];
  [alert  release];
  }
-
+ 
  
  }
  */
@@ -207,9 +199,9 @@ BOOL _reloading=NO;
             NSLog(@"article=%d",[articles count]);
             self.array = articles;
             [self.articleTableView reloadData];
-             [self.activityIndicatorView stopAnimating];
+            [self.activityIndicatorView stopAnimating];
             [self.activityIndicatorView setHidden:YES];
-           
+            
         }
         
     }];

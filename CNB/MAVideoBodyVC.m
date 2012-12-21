@@ -32,26 +32,24 @@
     [self playVideo];
 }
 - (void)setCurentVideo:(MAVideo *)video{
-    if (_curVideo!=video) {
-        [video retain];
-        self.curVideo=video;
-    }
+    
+    self.curVideo=video;
     
 }
 - (void)playVideo
 {
-
+    
     // 获取视频文件路径
     //    NSString *movieFile = @"http://v.youku.com/player/getRealM3U8/vid/XMzg5OTc5MDc2/type/video.m3u8";
-//    NSString *movieFile = @"http://v.youku.com/player/getRealM3U8/vid/XMzg5OTc5MDc2/type/mp4/v.m3u8";
+    //    NSString *movieFile = @"http://v.youku.com/player/getRealM3U8/vid/XMzg5OTc5MDc2/type/mp4/v.m3u8";
     //     NSString *movieFile = @"http://movies.apple.com/media/us/ipad-mini/2012/30ba527a-1a34-3f70-aae8-14f87ab76eea/feature/ipadmini-feature-us-20121023_r848-9dwc.mov";
     //    NSString *movieFile = @"http://www.tudou.com/programs/view/html5embed.action?code=aW5KnswOcG4";
     
     NSLog(@"url=%@",_curVideo.URL);
     // 设置视频播放器
-    self.moviePlayer = [[[MPMoviePlayerController alloc] initWithContentURL:[NSURL URLWithString:_curVideo.URL]] autorelease];
+    self.moviePlayer = [[MPMoviePlayerController alloc] initWithContentURL:[NSURL URLWithString:_curVideo.URL]];
     self.moviePlayer.allowsAirPlay = YES;
-//    self.moviePlayer.shouldAutoplay=NO;
+    //    self.moviePlayer.shouldAutoplay=NO;
     [self.moviePlayer.view setFrame:CGRectMake(10, 50, 300, 200)];
     
     // 将moviePlayer的视图添加到当前视图中
@@ -61,36 +59,34 @@
     // 登记该通知，接到该通知后，调用playVideoFinished:方法
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(playVideoFinished:) name:MPMoviePlayerPlaybackDidFinishNotification object:self.moviePlayer];
     [self.moviePlayer play];
-
+    
     //获取截图
-//    UIImageView *a =[[UIImageView alloc] initWithFrame:CGRectMake(10, 220, 300, 200)];
-//    //此处atTime不是秒，是fps乘以秒数 150代表 fps15*10秒
-//    UIImage *thumbNail = [MAVideoBodyVC thumbnailImageForVideo:[NSURL URLWithString:movieFile] atTime:45];
-//    
-//    //    UIImage *thumbNail = [self.moviePlayer thumbnailImageAtTime:10 timeOption:MPMovieTimeOptionExact];
-//    [a setImage:thumbNail];
-//    [self.view addSubview:a];
-
+    //    UIImageView *a =[[UIImageView alloc] initWithFrame:CGRectMake(10, 220, 300, 200)];
+    //    //此处atTime不是秒，是fps乘以秒数 150代表 fps15*10秒
+    //    UIImage *thumbNail = [MAVideoBodyVC thumbnailImageForVideo:[NSURL URLWithString:movieFile] atTime:45];
+    //
+    //    //    UIImage *thumbNail = [self.moviePlayer thumbnailImageAtTime:10 timeOption:MPMovieTimeOptionExact];
+    //    [a setImage:thumbNail];
+    //    [self.view addSubview:a];
+    
 }
 - (void)playVideoFinished:(NSNotification *)theNotification{
     // 取消监听
     [[NSNotificationCenter defaultCenter]
      removeObserver:self name:MPMoviePlayerPlaybackDidFinishNotification object:self.moviePlayer];
     // 将视频视图从父视图中删除
-//    [self.moviePlayer.view removeFromSuperview];
+    //    [self.moviePlayer.view removeFromSuperview];
 }
 - (void)didReceiveMemoryWarning
 {
-
-//    self.moviePlayer=nil;
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-
+    
 }
 + (UIImage*) thumbnailImageForVideo:(NSURL *)videoURL atTime:(NSTimeInterval)time {
-    AVURLAsset *asset = [[[AVURLAsset alloc] initWithURL:videoURL options:nil] autorelease];
+    AVURLAsset *asset = [[AVURLAsset alloc] initWithURL:videoURL options:nil] ;
     NSParameterAssert(asset);
-    AVAssetImageGenerator *assetImageGenerator = [[[AVAssetImageGenerator alloc] initWithAsset:asset] autorelease];
+    AVAssetImageGenerator *assetImageGenerator = [[AVAssetImageGenerator alloc] initWithAsset:asset] ;
     assetImageGenerator.appliesPreferredTrackTransform = YES;
     assetImageGenerator.apertureMode = AVAssetImageGeneratorApertureModeEncodedPixels;
     
@@ -104,7 +100,7 @@
     if (!thumbnailImageRef)
         NSLog(@"thumbnailImageGenerationError %@", thumbnailImageGenerationError);
     
-    UIImage *thumbnailImage = thumbnailImageRef ? [[[UIImage alloc] initWithCGImage:thumbnailImageRef] autorelease] : nil;
+    UIImage *thumbnailImage = thumbnailImageRef ? [[UIImage alloc] initWithCGImage:thumbnailImageRef]  : nil;
     
     return thumbnailImage;
 }

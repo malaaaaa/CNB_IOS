@@ -8,13 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MACellArticle : UITableViewCell{
-    IBOutlet UILabel *_title;
-    IBOutlet UILabel *_subTitle;
-    IBOutlet UIImageView *_thumbnail;
-}
-@property (nonatomic,retain) UILabel *title;
-@property (nonatomic,retain) UILabel *subTitle;
-@property (nonatomic,retain) UIImageView *thumbnail;
+@interface MACellArticle : UITableViewCell
+
+@property (nonatomic,strong) UILabel *title;
+@property (nonatomic,strong) UILabel *subTitle;
+@property (nonatomic,strong) UIImageView *thumbnail;
 
 @end

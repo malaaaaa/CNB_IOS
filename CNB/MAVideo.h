@@ -7,18 +7,16 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "PubInfo.h"
 
-@interface MAVideo : NSObject{
-    NSString *_videoID;
-    NSString *_URL;
-    NSString *_title;
-    NSString *_introduction;
-    NSString *_updateTime;
-}
-@property(nonatomic,copy) NSString *videoID;
-@property(nonatomic,copy) NSString *URL;
-@property(nonatomic,copy) NSString *title;
-@property(nonatomic,copy) NSString *introduction;
-@property(nonatomic,copy) NSString *updateTime;
+@interface MAVideo : NSObject
 
+@property(nonatomic,strong) NSString *videoID;
+@property(nonatomic,strong) NSString *URL;
+@property(nonatomic,strong) NSString *title;
+@property(nonatomic,strong) NSString *introduction;
+@property(nonatomic,strong) NSString *updateTime;
+
+- (id)initWithAttributes:(NSDictionary *)attributes;
++ (void)getVideosWithBlock:(void (^)(NSArray *videoArray, NSError *error))block;
 @end

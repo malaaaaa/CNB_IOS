@@ -11,14 +11,12 @@
 #import <MediaPlayer/MediaPlayer.h>
 #import <AVFoundation/AVAsset.h>
 #import <AVFoundation/AVAssetImageGenerator.h>
+#import "PubInfo.h"
 
+@interface MAVideoBodyVC : UIViewController
 
-@interface MAVideoBodyVC : UIViewController{
-    MPMoviePlayerController *_moviePlayer;
-    MAVideo *_curVideo;
-}
-@property(nonatomic,retain) MPMoviePlayerController *moviePlayer;
-@property(nonatomic,retain) MAVideo *curVideo;
+@property(nonatomic,strong) MPMoviePlayerController *moviePlayer;
+@property(nonatomic,strong) MAVideo *curVideo;
 
 + (UIImage*) thumbnailImageForVideo:(NSURL *)videoURL atTime:(NSTimeInterval)time;
 - (void)setCurentVideo:(MAVideo *)video;

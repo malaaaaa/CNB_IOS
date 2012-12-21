@@ -15,8 +15,11 @@
 @implementation MAVideoTVC
 @synthesize videoTableView=_videoTableView;
 @synthesize videoArray=_videoArray;
+@synthesize refreshHeaderView=_refreshHeaderView;
+@synthesize upDown=_upDown;
+@synthesize activityIndicatorView=_activityIndicatorView;
 
-NSArray *array;
+static BOOL _reloading=NO;
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
@@ -29,40 +32,22 @@ NSArray *array;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    [self.activityIndicatorView setHidden:NO];
+    [self.activityIndicatorView startAnimating];
+    [self reload];
+    
+    //定义下拉刷新历史记录
+    _refreshHeaderView = [[EGORefreshTableHeaderView alloc] initWithFrame:CGRectMake(0.0f, -55, 320, 55)];
+    _refreshHeaderView.delegate = self;
+    [_videoTableView addSubview:_refreshHeaderView];
+    
+}
 
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    
-    _videoArray =[[NSMutableArray alloc] init];
-    
-    array = [MARESTfulRequest getJSONArrayByPath:@"/video" JSONKey:@"vVideo" Parameter:nil];
-    for(int i=0;i<array.count;i++){
-        NSDictionary *dic = [array   objectAtIndex:i];
-        MAVideo *video = [[MAVideo alloc] init];
-        
-        video.title = [dic   objectForKey:@"title"];
-        video.introduction = [dic   objectForKey:@"introduction"];
-        video.updateTime = [dic   objectForKey:@"updateTime"];
-        video.URL= [dic objectForKey:@"url"];
-        
-        [_videoArray addObject:video];
-        [video release];
-    }
-}
--(void)dealloc
-{
-    self.videoTableView=nil;
-    self.videoArray=nil;
-    [super dealloc];
-}
 
 - (void)didReceiveMemoryWarning
 {
-    self.videoArray=nil;
-
+    
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
@@ -85,69 +70,20 @@ NSArray *array;
 {
     static NSString *CellIdentifier = @"MACellVideo";
     MACellVideo *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    NSLog(@"count=%d",[_videoArray count]);
     MAVideo *video = [_videoArray objectAtIndex:indexPath.row];
+    NSLog(@"aaa=%@",video.title);
     [cell.title setText:video.title];
-//    [cell.subTitle setText:article.subTitle];
-//    NSData *imageData = [[NSData alloc]initWithContentsOfURL:[NSURL URLWithString:article.thumbImagePath]];
-//    [cell.thumbnail setImage:[UIImage imageWithData:imageData]];
-    
-//    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-    // Configure the cell...
     
     return cell;
 }
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
 
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
 
 #pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     [detailViewController release];
-     */
     
     UIStoryboard*  sb = [UIStoryboard storyboardWithName:@"MainStoryboard"
                                                   bundle:nil];
@@ -156,5 +92,74 @@ NSArray *array;
     
     [self.navigationController pushViewController:videoBody animated:YES];
 }
+#pragma mark -
+#pragma mark UIScrollViewDelegate Methods
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    ZNLog(@"DidScroll");
+    [_refreshHeaderView egoRefreshScrollViewDidScroll:scrollView];
+}
 
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
+    ZNLog(@"EndDragging");
+    [_refreshHeaderView egoRefreshScrollViewDidEndDragging:scrollView];
+}
+
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
+}
+
+#pragma mark -
+#pragma mark EGORefreshTableHeaderDelegate Methods
+- (void)egoRefreshTableHeaderDidTriggerRefresh:(EGORefreshTableHeaderView *)view {
+    ZNLog(@"DidTriggerRefresh");
+    [self reloadTableViewDataSource];
+    [self performSelector:@selector(doneLoadingTableViewData) withObject:nil afterDelay:1.0];
+    
+}
+
+- (BOOL)egoRefreshTableHeaderDataSourceIsLoading:(EGORefreshTableHeaderView *)view {
+    ZNLog(@"SourceIsLoading");
+    return _reloading; // should return if data source model is reloading
+    
+}
+
+- (NSDate *)egoRefreshTableHeaderDataSourceLastUpdated:(EGORefreshTableHeaderView *)view {
+    ZNLog(@"SourceLastUpdated");
+    return [NSDate date]; // should return date data source was last changed
+}
+
+- (void)reloadTableViewDataSource {
+    //  should be calling your tableviews data source model to reload
+    //  put here just for demo
+    ZNLog(@"reloadTableViewDataSource");
+    self.upDown = @"up";
+    
+    [self reload];
+    
+    _reloading = YES;
+    _videoTableView.contentOffset = CGPointMake(0, -55);
+}
+- (void)doneLoadingTableViewData {
+    //  model should call this when its done loading
+    ZNLog(@"doneLoadingTableViewData");
+    _reloading = NO;
+    [_refreshHeaderView egoRefreshScrollViewDataSourceDidFinishedLoading:_videoTableView];
+    
+}
+
+
+- (void)reload {
+    
+    [MAVideo getVideosWithBlock:^(NSArray *videoArray, NSError *error) {
+        if (error) {
+            [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Error", nil) message:[error localizedDescription] delegate:nil cancelButtonTitle:nil otherButtonTitles:NSLocalizedString(@"OK", nil), nil] show];
+        } else {
+            self.videoArray = videoArray;
+            [self.videoTableView reloadData];
+            [self.activityIndicatorView stopAnimating];
+            [self.activityIndicatorView setHidden:YES];
+        }
+        
+    }];
+    
+}
 @end

@@ -9,18 +9,12 @@
 #import "MAPhotoAlbumVC.h"
 #import "SDWebImageDataSource.h"
 
-@interface MAPhotoAlbumVC ()
-- (void)showActivityIndicator;
-- (void)hideActivityIndicator;
-@end
-
 @implementation MAPhotoAlbumVC
-- (void)dealloc
-{
-    [activityIndicatorView_ release], activityIndicatorView_ = nil;
-    [images_ release], images_ = nil;
-    [super dealloc];
-}
+
+@synthesize activityIndicator=_activityIndicatorView;
+@synthesize imageArray=_imageArray;
+@synthesize images=_images;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -34,12 +28,29 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    _imageArray = [[NSMutableArray alloc] init];
+    UIActivityIndicatorView *activityIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    [activityIndicator setAutoresizingMask:UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleBottomMargin];
+    [activityIndicator setCenter:[[self view] center]];
+    [activityIndicator startAnimating];
+    [self setActivityIndicator:activityIndicator];
     
+    [[self view] addSubview:[self activityIndicator]];
+    
+    // Label back button as "Back".
+    
+    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"返回", @"Back button title") style:UIBarButtonItemStylePlain target:nil action:nil];
+    [[self navigationItem] setBackBarButtonItem:backButton];
+    
+    [self fetchPhotos];
+    [self setDataSource:[self photos]];
     self.title = @"相册";
     
-    images_ = [[SDWebImageDataSource alloc] init];
-    [self setDataSource:images_];
-
+    
+}
+- (void)viewDidAppear:(BOOL)animated
+{
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -47,43 +58,29 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-- (void)willLoadThumbs
+- (SDWebImageDataSource *)photos
 {
-    [self showActivityIndicator];
+    return _images;
 }
-
-- (void)didLoadThumbs
+- (void)fetchPhotos
 {
-    [self hideActivityIndicator];
-}
-
-#pragma mark -
-#pragma mark Activity Indicator
-
-- (UIActivityIndicatorView *)activityIndicator
-{
-    if (activityIndicatorView_) {
-        return activityIndicatorView_;
-    }
-    
-    activityIndicatorView_ = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
-    CGPoint center = [[self view] center];
-    [activityIndicatorView_ setCenter:center];
-    [activityIndicatorView_ setHidesWhenStopped:YES];
-    [activityIndicatorView_ startAnimating];
-    [[self view] addSubview:activityIndicatorView_];
-    
-    return activityIndicatorView_;
-}
-
-- (void)showActivityIndicator
-{
-    [[self activityIndicator] startAnimating];
-}
-
-- (void)hideActivityIndicator
-{
-    [[self activityIndicator] stopAnimating];
+    _images = [[SDWebImageDataSource alloc] init];
+    // Do any additional setup after loading the view, typically from a nib.
+    [MAPhotoAlbum getPhotoAlbumWithBlock:^(NSArray *photoAlbumArray, NSError *error) {
+        if (error) {
+            [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Error", nil) message:[error localizedDescription] delegate:nil cancelButtonTitle:nil otherButtonTitles:NSLocalizedString(@"OK", nil), nil] show];
+        } else {
+            [_imageArray removeAllObjects];
+            for(int i=0;i<photoAlbumArray.count;i++){
+                MAPhotoAlbum *photoAlbum=[photoAlbumArray objectAtIndex:i];
+                [_imageArray addObject:[NSArray arrayWithObjects:photoAlbum.fullSizeImagePath,photoAlbum.thumbnailPath, nil]];
+            }
+            _images.image=_imageArray;
+            [[self activityIndicator] stopAnimating];
+            [self reloadThumbs];
+        }
+        
+    }];
 }
 
 @end

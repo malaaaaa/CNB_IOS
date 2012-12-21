@@ -11,14 +11,13 @@
 #import "MACellVideo.h"
 #import "MAVideoBodyVC.h"
 #import "MAVideo.h"
+#import "EGORefreshTableHeaderView.h"
 
+@interface MAVideoTVC : UITableViewController<EGORefreshTableHeaderDelegate,UIScrollViewDelegate>
 
-@interface MAVideoTVC : UITableViewController{
-    IBOutlet UITableView *_videoTableView;
-    NSMutableArray *_videoArray;
-
-}
-@property (nonatomic,retain) UITableView *videoTableView;
-@property (nonatomic,retain) NSMutableArray *videoArray;
-
+@property (nonatomic,strong) IBOutlet UITableView *videoTableView;
+@property (nonatomic,strong) NSArray *videoArray;
+@property (nonatomic,strong) EGORefreshTableHeaderView *refreshHeaderView;
+@property (nonatomic,strong) IBOutlet UIActivityIndicatorView *activityIndicatorView;
+@property (nonatomic,strong) NSString *upDown;
 @end

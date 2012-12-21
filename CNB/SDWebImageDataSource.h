@@ -9,11 +9,13 @@
 #import <Foundation/Foundation.h>
 #import "KTPhotoBrowserDataSource.h"
 #import "PubInfo.h"
+#import "MAPhotoAlbum.h"
 
 
 
-@interface SDWebImageDataSource : NSObject <KTPhotoBrowserDataSource> {
-   NSMutableArray *images_;
-}
+@interface SDWebImageDataSource : NSObject <KTPhotoBrowserDataSource>
 
+@property(nonatomic,strong) NSMutableArray *image;
+
+//- (void)fetchPhotos;
 @end

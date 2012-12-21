@@ -474,13 +474,16 @@ const CGFloat ktkDefaultToolbarHeight = 44;
       [UIView setAnimationDuration:0.4];
    }
    
-   if ( ! [self isStatusbarHidden] ) {     
+   if ( ! [self isStatusbarHidden] ) {
+       /* removed by mawp 解决相册全屏后可能出现的status bar位置变为白色，且显示异常的问题，感谢
+        http://stackoverflow.com/questions/10217525/iphone-status-bar-disappearing-in-app-using-ktphotobrowser-gallery-when-moving-b
      if ([[UIApplication sharedApplication] respondsToSelector:@selector(setStatusBarHidden:withAnimation:)]) {
        [[UIApplication sharedApplication] setStatusBarHidden:hide withAnimation:NO];
      } else {  // Deprecated in iOS 3.2+.
        id sharedApp = [UIApplication sharedApplication];  // Get around deprecation warnings.
        [sharedApp setStatusBarHidden:hide animated:NO];
      }
+        */
    }
 
    CGFloat alpha = hide ? 0.0 : 1.0;

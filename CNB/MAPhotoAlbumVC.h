@@ -7,14 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "ASIHTTPRequest.h"
 #import "KTThumbsViewController.h"
 
 @class SDWebImageDataSource;
-@interface MAPhotoAlbumVC : KTThumbsViewController{
-@private
-    SDWebImageDataSource *images_;
-    UIActivityIndicatorView *activityIndicatorView_;
-}
+@interface MAPhotoAlbumVC : KTThumbsViewController
+
+@property (nonatomic, strong) UIActivityIndicatorView *activityIndicator;
+@property (nonatomic, strong) NSMutableArray *imageArray;
+@property (nonatomic, strong) SDWebImageDataSource *images;
 
 @end

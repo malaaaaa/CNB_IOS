@@ -24,7 +24,7 @@
             <objects>
                 <navigationController definesPresentationContext="YES" id="Be7-Py-5WS" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="相册" image="first" id="pvL-OV-DbU"/>
-                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackTranslucent"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="ksk-Hy-ndH">
                         <rect key="frame" x="0.0" y="0.0" width="0.0" height="44"/>
@@ -534,6 +534,10 @@ Cg
                         <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <activityIndicatorView key="tableFooterView" opaque="NO" contentMode="scaleToFill" style="gray" id="rg6-DF-Qnt">
+                            <rect key="frame" x="0.0" y="97" width="320" height="20"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </activityIndicatorView>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" restorationIdentifier="" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MACellVideo" rowHeight="75" id="D6q-nq-d8j" customClass="MACellVideo">
                                 <rect key="frame" x="0.0" y="22" width="320" height="75"/>
@@ -578,20 +582,21 @@ Cg
                                     <constraint firstItem="CgT-wl-lz8" firstAttribute="top" secondItem="gXd-Km-MNb" secondAttribute="top" type="default" id="t1O-Jh-jR7"/>
                                 </constraints>
                                 <connections>
-                                    <outlet property="_note" destination="LIE-Cw-Lxc" id="il0-lH-DFD"/>
-                                    <outlet property="_thumbnail" destination="CgT-wl-lz8" id="xGk-hz-7cb"/>
-                                    <outlet property="_title" destination="gXd-Km-MNb" id="bT2-Of-txK"/>
+                                    <outlet property="note" destination="LIE-Cw-Lxc" id="QNc-SO-QIf"/>
+                                    <outlet property="thumbnail" destination="CgT-wl-lz8" id="btB-Bq-eJF"/>
+                                    <outlet property="title" destination="gXd-Km-MNb" id="G2i-ad-ZDg"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
-                            <outlet property="dataSource" destination="8A8-pS-crp" id="aUN-VY-bkV"/>
-                            <outlet property="delegate" destination="8A8-pS-crp" id="0ID-mM-Jpd"/>
+                            <outlet property="dataSource" destination="8A8-pS-crp" id="nxv-SL-zan"/>
+                            <outlet property="delegate" destination="8A8-pS-crp" id="KZS-Qf-aNL"/>
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="视频" id="qZn-yx-wBe"/>
                     <connections>
-                        <outlet property="_videoTableView" destination="bs3-vj-64E" id="1vA-l2-Er6"/>
+                        <outlet property="activityIndicatorView" destination="rg6-DF-Qnt" id="O5x-GM-dng"/>
+                        <outlet property="videoTableView" destination="bs3-vj-64E" id="eeC-L3-Dib"/>
                         <segue destination="tdh-ym-BEA" kind="push" identifier="VideoBodyVC" id="LAW-HY-TEe"/>
                     </connections>
                 </tableViewController>
@@ -759,18 +764,13 @@ Cg
         </class>
         <class className="MACellArticle" superclassName="UITableViewCell">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/MACellArticle.h"/>
-            <relationships>
-                <relationship kind="outlet" name="_subTitle" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="_thumbnail" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="_title" candidateClass="UILabel"/>
-            </relationships>
         </class>
         <class className="MACellVideo" superclassName="UITableViewCell">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/MACellVideo.h"/>
             <relationships>
-                <relationship kind="outlet" name="_note" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="_thumbnail" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="_title" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="note" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="thumbnail" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="title" candidateClass="UILabel"/>
             </relationships>
         </class>
         <class className="MACellVideoComment" superclassName="UITableViewCell">
@@ -788,7 +788,8 @@ Cg
         <class className="MAVideoTVC" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/MAVideoTVC.h"/>
             <relationships>
-                <relationship kind="outlet" name="_videoTableView" candidateClass="UITableView"/>
+                <relationship kind="outlet" name="activityIndicatorView" candidateClass="UIActivityIndicatorView"/>
+                <relationship kind="outlet" name="videoTableView" candidateClass="UITableView"/>
             </relationships>
         </class>
         <class className="NSLayoutConstraint" superclassName="NSObject">

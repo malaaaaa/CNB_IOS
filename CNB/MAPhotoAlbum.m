@@ -1,42 +1,38 @@
 //
-//  MAVideo.m
+//  MAPhotoAlbum.m
 //  CNB
 //
-//  Created by 馬文培 on 12-12-12.
+//  Created by 馬文培 on 12-12-20.
 //  Copyright (c) 2012年 馬文培. All rights reserved.
 //
 
-#import "MAVideo.h"
+#import "MAPhotoAlbum.h"
 
-@implementation MAVideo
-@synthesize videoID=_videoID;
-@synthesize URL=_URL;
-@synthesize title=_title;
-@synthesize introduction=_introduction;
-@synthesize updateTime=_updateTime;
+@implementation MAPhotoAlbum
+
+@synthesize fullSizeImagePath=_fullSizeImagePath;
+@synthesize thumbnailPath=_thumbnailPath;
 
 - (id)initWithAttributes:(NSDictionary *)attributes {
     self = [super init];
     if (!self) {
         return nil;
     }
-    _title = [attributes   valueForKeyPath:@"title"];
-    _introduction = [attributes   valueForKeyPath:@"introduction"];
-    _updateTime = [attributes   valueForKeyPath:@"updateTime"];
-    _URL= [attributes valueForKeyPath:@"url"];
+    _fullSizeImagePath = [attributes   valueForKeyPath:@"fullSizeImagePath"];
+    _thumbnailPath = [attributes   valueForKeyPath:@"thumbnailPath"];
     
     return self;
 }
-+ (void)getVideosWithBlock:(void (^)(NSArray *videoArray, NSError *error))block {
-    [[AFAppDotNetAPIClient sharedClient] getPath:@"video" parameters:nil success:^(AFHTTPRequestOperation *operation, id JSON) {
++ (void)getPhotoAlbumWithBlock:(void (^)(NSArray *photoAlbumArray, NSError *error))block {
+    [[AFAppDotNetAPIClient sharedClient] getPath:@"image/photo/url" parameters:nil success:^(AFHTTPRequestOperation *operation, id JSON) {
         NSMutableArray *mutableObjects=nil;
         //id body是为了处理服务端单条数据的JSON格式没有[]导致直接解析成NSArray失败而存在
-        id body = [JSON valueForKeyPath:@"vVideo"];
+        id body = [JSON valueForKeyPath:@"vPhotoalbum"];
         //单条数据
         if ([body isKindOfClass:[NSDictionary class]]) {
-            MAVideo *video = [[MAVideo alloc] initWithAttributes:body];
+            MAPhotoAlbum *photoAlbum = [[MAPhotoAlbum alloc] initWithAttributes:body];
             mutableObjects = [NSMutableArray arrayWithCapacity:1];
-            [mutableObjects addObject:video];
+            [mutableObjects addObject:photoAlbum];
             
         }
         //多条数据,可直接转化为数组
@@ -44,8 +40,8 @@
         else{
             mutableObjects = [NSMutableArray arrayWithCapacity:[body count]];
             for (NSDictionary *attributes in body) {
-                MAVideo *video = [[MAVideo alloc] initWithAttributes:attributes];
-                [mutableObjects addObject:video];
+                MAPhotoAlbum *photoAlbum = [[MAPhotoAlbum alloc] initWithAttributes:attributes];
+                [mutableObjects addObject:photoAlbum];
                 
             }
         }
