@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "UMSocialBar.h"
 
 @interface MAAppDelegate : UIResponder <UIApplicationDelegate>
 

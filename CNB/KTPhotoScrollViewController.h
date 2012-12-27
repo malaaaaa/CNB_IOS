@@ -7,11 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "UMSocialBar.h"
 
 @class KTPhotoViewController;
 @protocol KTPhotoBrowserDataSource;
 
-@interface KTPhotoScrollViewController : UIViewController<UIScrollViewDelegate, UIActionSheetDelegate> 
+@interface KTPhotoScrollViewController : UIViewController<UIScrollViewDelegate, UIActionSheetDelegate,UMSocialBarDelegate>
 {
    id <KTPhotoBrowserDataSource> dataSource_;
    UIScrollView *scrollView_;
@@ -39,6 +40,9 @@
    
    UIBarButtonItem *nextButton_;
    UIBarButtonItem *previousButton_;
+    
+    //Mawp_02
+    UMSocialBar *_socialBar;
 }
 
 @property (nonatomic, assign) UIStatusBarStyle statusBarStyle;

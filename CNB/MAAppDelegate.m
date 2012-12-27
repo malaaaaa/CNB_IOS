@@ -10,6 +10,8 @@
 
 @implementation MAAppDelegate
 
+//#define umeng_appkey @"50d901b25270155bd60000f8"
+#define umeng_appkey @"507fcab25270157b37000010"
 //- (void)dealloc
 //{
 //    [_window release];
@@ -20,6 +22,8 @@
 {
     // Override point for customization after application launch.
     [application setStatusBarHidden:NO];
+    
+    [UMSocialData setAppKey:umeng_appkey];
     return YES;
 }
 							

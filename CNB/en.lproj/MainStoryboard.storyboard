@@ -183,10 +183,10 @@
             </objects>
             <point key="canvasLocation" x="233" y="1724"/>
         </scene>
-        <!--Table View Controller - 更多-->
+        <!--ConfigurationTVC - 更多-->
         <scene sceneID="gNq-zF-UMf">
             <objects>
-                <tableViewController id="UEW-7K-tJS" sceneMemberID="viewController">
+                <tableViewController id="UEW-7K-tJS" customClass="MAConfigurationTVC" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="singleLineEtched" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="G4I-Sz-QHT">
                         <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -238,32 +238,15 @@
                             </tableViewSection>
                             <tableViewSection headerTitle="登陆评论" id="zz9-Lm-h7K">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="EkI-Fd-omy" style="IBUITableViewCellStyleDefault" id="Hmd-At-5Dr">
-                                        <rect key="frame" x="0.0" y="182" width="320" height="45"/>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="EkI-Fd-omy" style="IBUITableViewCellStyleDefault" id="Hmd-At-5Dr">
+                                        <rect key="frame" x="0.0" y="182" width="320" height="46"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="10" y="1" width="280" height="43"/>
+                                            <rect key="frame" x="10" y="1" width="300" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="新浪微博" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="EkI-Fd-omy">
-                                                    <rect key="frame" x="10" y="0.0" width="260" height="43"/>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                </label>
-                                            </subviews>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        </view>
-                                    </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="SKV-2v-VrV" style="IBUITableViewCellStyleDefault" id="BDd-Zq-fkH">
-                                        <rect key="frame" x="0.0" y="227" width="320" height="45"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="10" y="0.0" width="280" height="43"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="崔健论坛" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="SKV-2v-VrV">
-                                                    <rect key="frame" x="10" y="0.0" width="260" height="43"/>
+                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="用户中心" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="EkI-Fd-omy">
+                                                    <rect key="frame" x="10" y="0.0" width="280" height="43"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -277,7 +260,7 @@
                             <tableViewSection headerTitle="反馈" id="hEX-SP-db3">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="YVN-45-nKU" style="IBUITableViewCellStyleDefault" id="CRB-AM-jwr">
-                                        <rect key="frame" x="0.0" y="318" width="320" height="46"/>
+                                        <rect key="frame" x="0.0" y="274" width="320" height="46"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="10" y="1" width="280" height="43"/>
@@ -298,7 +281,7 @@
                             <tableViewSection headerTitle="关于应用" id="15M-du-lWr">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="WQA-2C-cJg" style="IBUITableViewCellStyleDefault" id="eYY-mE-fMK">
-                                        <rect key="frame" x="0.0" y="410" width="320" height="45"/>
+                                        <rect key="frame" x="0.0" y="366" width="320" height="45"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="10" y="1" width="280" height="43"/>
@@ -315,7 +298,7 @@
                                         </view>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="tDc-r3-yGd" style="IBUITableViewCellStyleDefault" id="KNM-Vs-Zg8">
-                                        <rect key="frame" x="0.0" y="455" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="411" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="10" y="0.0" width="280" height="43"/>
@@ -332,7 +315,7 @@
                                         </view>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="90s-hp-2Ph">
-                                        <rect key="frame" x="0.0" y="499" width="320" height="45"/>
+                                        <rect key="frame" x="0.0" y="455" width="320" height="45"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="10" y="0.0" width="300" height="43"/>
@@ -739,63 +722,6 @@ Cg
         <image name="second.png" width="30" height="30"/>
         <image name="videoplay.png" width="150" height="150"/>
     </resources>
-    <classes>
-        <class className="KTThumbsViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/KTThumbsViewController.h"/>
-        </class>
-        <class className="MAArticleBodyVC" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MAArticleBodyVC.h"/>
-            <relationships>
-                <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
-            </relationships>
-        </class>
-        <class className="MAArticleTVC" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MAArticleTVC.h"/>
-            <relationships>
-                <relationship kind="outlet" name="activityIndicatorView" candidateClass="UIActivityIndicatorView"/>
-                <relationship kind="outlet" name="articleTableView" candidateClass="UITableView"/>
-            </relationships>
-        </class>
-        <class className="MABandMembersVC" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MABandMembersVC.h"/>
-            <relationships>
-                <relationship kind="outlet" name="_scrollView" candidateClass="UIScrollView"/>
-            </relationships>
-        </class>
-        <class className="MACellArticle" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MACellArticle.h"/>
-        </class>
-        <class className="MACellVideo" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MACellVideo.h"/>
-            <relationships>
-                <relationship kind="outlet" name="note" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="thumbnail" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="title" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="MACellVideoComment" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MACellVideoComment.h"/>
-        </class>
-        <class className="MAPhotoAlbumVC" superclassName="KTThumbsViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MAPhotoAlbumVC.h"/>
-        </class>
-        <class className="MAVideoBodyVC" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MAVideoBodyVC.h"/>
-        </class>
-        <class className="MAVideoCommentTVC" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MAVideoCommentTVC.h"/>
-        </class>
-        <class className="MAVideoTVC" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MAVideoTVC.h"/>
-            <relationships>
-                <relationship kind="outlet" name="activityIndicatorView" candidateClass="UIActivityIndicatorView"/>
-                <relationship kind="outlet" name="videoTableView" candidateClass="UITableView"/>
-            </relationships>
-        </class>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

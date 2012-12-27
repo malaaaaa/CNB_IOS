@@ -15,6 +15,9 @@
 #define CONTENTTYPE_IMAGE    @"0" //图片
 #define CONTENTTYPE_TEXT    @"1" //文字
 
-
+//UMSocialData 对象标示符前缀
+#define UMSDATA_A @"CNB_UMSociaData_Article"
+#define UMSDATA_P @"CNB_UMSociaData_Photo"
+#define UMSDATA_V @"CNB_UMSociaData_Video"
 
 #endif

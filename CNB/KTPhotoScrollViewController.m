@@ -5,6 +5,16 @@
 //  Created by Kirby Turner on 2/4/10.
 //  Copyright 2010 White Peak Software Inc. All rights reserved.
 //
+/********************************************************************/
+//  Modified by Mawp
+
+//  Mawp_01 on 2012.12.21
+//  解决相册全屏后可能出现的status bar位置变为白色，且显示异常的问题，感谢
+//  http://stackoverflow.com/questions/10217525/iphone-status-bar-disappearing-in-app-using-ktphotobrowser-gallery-when-moving-b
+
+//  Mawp_02 on 2012.12.26
+//  增加友盟社会化分享功能
+/********************************************************************/
 
 #import "KTPhotoScrollViewController.h"
 #import "KTPhotoBrowserDataSource.h"
@@ -74,7 +84,7 @@ const CGFloat ktkDefaultToolbarHeight = 44;
    return self;
 }
 
-- (void)loadView 
+- (void)loadView
 {
    [super loadView];
    
@@ -102,6 +112,7 @@ const CGFloat ktkDefaultToolbarHeight = 44;
                   style:UIBarButtonItemStylePlain
                   target:self
                   action:@selector(nextPhoto)];
+//    nextButton_=[[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"pull.png"] style:UIBarButtonItemStylePlain target:self action:@selector(nextPhoto)];
    
    previousButton_ = [[UIBarButtonItem alloc] 
                       initWithImage:KTLoadImageFromBundle(@"previousIcon.png")
@@ -154,9 +165,17 @@ const CGFloat ktkDefaultToolbarHeight = 44;
    if (exportButton) [exportButton release];
    [toolbarItems release];
    [space release];
+    
+    if ([dataSource_ respondsToSelector:@selector(imageBackgroundColor)]) {
+        NSLog(@"data res is ok");
+    }
+    else{
+        NSLog(@"data res is 不 ok");
+    }
+
 }
 
-- (void)setTitleWithCurrentPhotoIndex 
+- (void)setTitleWithCurrentPhotoIndex
 {
    NSString *formatString = NSLocalizedString(@"%1$i of %2$i", @"Picture X out of Y total.");
    NSString *title = [NSString stringWithFormat:formatString, currentIndex_ + 1, photoCount_, nil];
@@ -197,6 +216,21 @@ const CGFloat ktkDefaultToolbarHeight = 44;
    for (int i=0; i < photoCount_; i++) {
       [photoViews_ addObject:[NSNull null]];
    }
+    
+    //Mawp_02
+    UMSocialData *socialData = [[UMSocialData alloc] initWithIdentifier:@"test" withTitle:@"socialBarTest"];
+    _socialBar = [[UMSocialBar alloc] initWithUMSocialData:socialData withViewController:self];
+    //下面这个设置为NO，分享列表出现短信、邮箱不需要登录
+    _socialBar.socialControllerService.shareNeedLogin = NO;
+    //设置个人中心页面也不需要登录，默认需要。如果你单独使用UMSocialControllerService则默认不需要
+    _socialBar.socialControllerService.userCenterNeedLogin =NO;
+    _socialBar.socialBarDelegate = self;
+    _socialBar.socialBarView.themeColor = UMSBarColorBlack;
+    
+    [toolbar_ addSubview:_socialBar];
+    _socialBar.center = CGPointMake(160, 18);
+    
+    NSLog(@"NSStringFromCGRect=%@",NSStringFromCGRect(_socialBar.frame));
 }
 
 - (void)didReceiveMemoryWarning 
@@ -235,6 +269,7 @@ const CGFloat ktkDefaultToolbarHeight = 44;
 
 - (void)viewWillDisappear:(BOOL)animated 
 {
+    NSLog(@"willdisapp");
   // Reset nav bar translucency and status bar style to whatever it was before.
   UINavigationBar *navbar = [[self navigationController] navigationBar];
   [navbar setTranslucent:navbarWasTranslucent_];
@@ -272,7 +307,7 @@ const CGFloat ktkDefaultToolbarHeight = 44;
    }
 }
 
-- (void)toggleNavButtons 
+- (void)toggleNavButtons
 {
    [previousButton_ setEnabled:(currentIndex_ > 0)];
    [nextButton_ setEnabled:(currentIndex_ < photoCount_ - 1)];
@@ -340,6 +375,7 @@ const CGFloat ktkDefaultToolbarHeight = 44;
       // Turn off zooming.
       [currentPhotoView turnOffZoom];
    }
+
 }
 
 - (void)unloadPhoto:(NSInteger)index
@@ -367,6 +403,12 @@ const CGFloat ktkDefaultToolbarHeight = 44;
    
    [self setTitleWithCurrentPhotoIndex];
    [self toggleNavButtons];
+    
+    //Mawp02
+    _socialBar.socialData.shareText = @"#蓝色骨头App之相册#";
+    _socialBar.socialData.shareImage=[dataSource_ imageAtIndex:newIndex];
+    _socialBar.socialData.commentImage = [dataSource_ imageAtIndex:newIndex];
+    _socialBar.socialData.commentText = @"#蓝色骨头App#";
 }
 
 
@@ -475,8 +517,7 @@ const CGFloat ktkDefaultToolbarHeight = 44;
    }
    
    if ( ! [self isStatusbarHidden] ) {
-       /* removed by mawp 解决相册全屏后可能出现的status bar位置变为白色，且显示异常的问题，感谢
-        http://stackoverflow.com/questions/10217525/iphone-status-bar-disappearing-in-app-using-ktphotobrowser-gallery-when-moving-b
+       /* removed Mawp_01
      if ([[UIApplication sharedApplication] respondsToSelector:@selector(setStatusBarHidden:withAnimation:)]) {
        [[UIApplication sharedApplication] setStatusBarHidden:hide withAnimation:NO];
      } else {  // Deprecated in iOS 3.2+.
@@ -506,6 +547,7 @@ const CGFloat ktkDefaultToolbarHeight = 44;
 
 - (void)hideChrome 
 {
+    NSLog(@"hideChrome");
    if (chromeHideTimer_ && [chromeHideTimer_ isValid]) {
       [chromeHideTimer_ invalidate];
       chromeHideTimer_ = nil;
@@ -603,4 +645,10 @@ const CGFloat ktkDefaultToolbarHeight = 44;
    [self startChromeDisplayTimer];
 }
 
+//Mawp_02
+#pragma mark - UMSocialBarDelegate
+-(void)didFinishUpdateBarNumber:(UMSButtonTypeMask)actionTypeMask
+{
+    NSLog(@"finish update bar button is %d",actionTypeMask);
+}
 @end

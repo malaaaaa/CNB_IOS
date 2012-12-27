@@ -10,12 +10,16 @@
 #import "PubInfo.h"
 #import "MAArticle.h"
 #import "MAArticleBody.h"
+#import "UMSocialBar.h"
+#import "UMSocialControllerService.h"
 
-@interface MAArticleBodyVC : UIViewController
+@interface MAArticleBodyVC : UIViewController<  UMSocialDataDelegate >
 
 @property(nonatomic,strong) IBOutlet UIScrollView *scrollView;
 @property(nonatomic,strong) MAArticle *curArticle;
 @property(nonatomic,strong) NSArray *array;
+@property(nonatomic,strong) UMSocialControllerServiceComment *socialController;
+@property(nonatomic,strong) UIButton *commentsButton;
 
 - (void)setCurentArticle:(MAArticle *)article;
 - (void)fillCurrentPage;
