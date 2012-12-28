@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "UMSocialBar.h"
 
-@interface MAAppDelegate : UIResponder <UIApplicationDelegate>
+@interface MAAppDelegate : UIResponder <UIApplicationDelegate,UITabBarControllerDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 

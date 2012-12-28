@@ -10,8 +10,8 @@
 
 @implementation MAAppDelegate
 
-//#define umeng_appkey @"50d901b25270155bd60000f8"
-#define umeng_appkey @"507fcab25270157b37000010"
+#define umeng_appkey @"50d901b25270155bd60000f8"
+//#define umeng_appkey @"507fcab25270157b37000010"
 //- (void)dealloc
 //{
 //    [_window release];
@@ -22,8 +22,14 @@
 {
     // Override point for customization after application launch.
     [application setStatusBarHidden:NO];
-    
+    //友盟Key的指定
     [UMSocialData setAppKey:umeng_appkey];
+    
+    //手工指定下TabBarController代理，用于控制Bar切换事件
+    UITabBarController *tabController =
+    (UITabBarController *)self.window.rootViewController;
+    tabController.delegate = self;
+    
     return YES;
 }
 							
@@ -53,5 +59,13 @@
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
-
+//TabBar切换代理事件,用于处理第一个模块横屏的情况下切换到其他模块情况下的视图自动旋转问题。
+- (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController{
+    if (tabBarController.selectedIndex!=0) {
+        [[UIApplication sharedApplication] setStatusBarOrientation:UIInterfaceOrientationPortrait];
+        //重置
+        tabBarController.view.transform = CGAffineTransformIdentity;
+        tabBarController.view.bounds = CGRectMake(0, 0, 320, 480);
+    }
+}
 @end

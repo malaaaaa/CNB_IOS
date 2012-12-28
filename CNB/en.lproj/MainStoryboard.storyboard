@@ -604,7 +604,7 @@ Cg
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ydb-Ai-7li" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="249" y="1100"/>
+            <point key="canvasLocation" x="225" y="1110"/>
         </scene>
         <!--Video BodyVC-->
         <scene sceneID="AGc-aF-k3Q">
@@ -638,17 +638,19 @@ Cg
             </objects>
             <point key="canvasLocation" x="1176" y="1100"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Root Tab Bar Controller-->
         <scene sceneID="15">
             <objects>
-                <tabBarController id="4" sceneMemberID="viewController">
+                <tabBarController id="4" customClass="MARootTabBarController" sceneMemberID="viewController">
                     <nil key="simulatedBottomBarMetrics"/>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="5">
                         <rect key="frame" x="0.0" y="431" width="320" height="49"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
+                        <outlet property="delegate" destination="5" id="gpe-8Y-PY8"/>
                         <segue destination="Be7-Py-5WS" kind="relationship" relationship="viewControllers" id="4Hy-DL-9DK"/>
                         <segue destination="v4B-ak-VhJ" kind="relationship" relationship="viewControllers" id="qwS-qs-7I6"/>
                         <segue destination="LkH-7x-wEI" kind="relationship" relationship="viewControllers" id="76U-SN-gst"/>
@@ -657,7 +659,7 @@ Cg
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="14" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-446" y="881"/>
+            <point key="canvasLocation" x="-442" y="901"/>
         </scene>
         <!--Video CommentTVC-->
         <scene sceneID="48K-TP-ej1">
