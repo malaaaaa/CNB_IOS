@@ -8,7 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import "MACellVideoComment.h"
+#import "MAVideo.h"
+#import "UMSocialBar.h"
+#import "UMSocialControllerService.h"
 
 @interface MAVideoCommentTVC : UITableViewController
+@property(nonatomic,strong) MAVideo *currentVideo;
+
 
 @end

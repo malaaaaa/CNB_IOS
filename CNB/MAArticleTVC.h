@@ -19,6 +19,6 @@
 @property (nonatomic,strong) IBOutlet UITableView *articleTableView;
 @property (nonatomic,strong) NSArray *array;
 @property (nonatomic,strong) EGORefreshTableHeaderView *refreshHeaderView;
-@property (nonatomic,strong) IBOutlet UIActivityIndicatorView *activityIndicatorView;
+@property (nonatomic,weak) IBOutlet UIActivityIndicatorView *activityIndicatorView;
 @property (nonatomic,strong) NSString *upDown;
 @end

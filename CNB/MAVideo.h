@@ -16,6 +16,7 @@
 @property(nonatomic,strong) NSString *title;
 @property(nonatomic,strong) NSString *introduction;
 @property(nonatomic,strong) NSString *updateTime;
+@property(nonatomic,strong) NSString *shareURL;
 
 - (id)initWithAttributes:(NSDictionary *)attributes;
 + (void)getVideosWithBlock:(void (^)(NSArray *videoArray, NSError *error))block;

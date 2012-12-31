@@ -10,7 +10,7 @@
 
 @interface MACellVideo : UITableViewCell
 
-@property (nonatomic,strong) IBOutlet UILabel *title;
-@property (nonatomic,strong) IBOutlet UILabel *note;
-@property (nonatomic,strong) IBOutlet UIImageView *thumbnail;
+@property (nonatomic,weak) IBOutlet UILabel *title;
+@property (nonatomic,weak) IBOutlet UILabel *note;
+@property (nonatomic,weak) IBOutlet UIImageView *thumbnail;
 @end

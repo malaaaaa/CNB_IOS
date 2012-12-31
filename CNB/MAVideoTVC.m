@@ -89,7 +89,6 @@ static BOOL _reloading=NO;
                                                   bundle:nil];
     MAVideoBodyVC* videoBody = [sb instantiateViewControllerWithIdentifier:@"MAVideoBodyVC"];
     [videoBody setCurentVideo:[_videoArray objectAtIndex:indexPath.row]];
-    
     [self.navigationController pushViewController:videoBody animated:YES];
 }
 #pragma mark -

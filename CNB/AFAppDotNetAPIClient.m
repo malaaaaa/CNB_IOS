@@ -25,7 +25,7 @@
 #import "AFJSONRequestOperation.h"
 
 static NSString * const kAFAppDotNetAPIBaseURLString = @"http://10.2.17.105:8080/CNB/webresources";
-
+//static NSString * const kAFAppDotNetAPIBaseURLString = @"http://localhost:8080/CNB/webresources";
 @implementation AFAppDotNetAPIClient
 
 + (AFAppDotNetAPIClient *)sharedClient {

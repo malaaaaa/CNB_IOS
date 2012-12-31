@@ -9,7 +9,8 @@
 #import "MACellVideoComment.h"
 
 @implementation MACellVideoComment
-
+@synthesize videoTitle=_videoTitle;
+@synthesize videoDescription=_videoDescription;
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
@@ -25,5 +26,6 @@
 
     // Configure the view for the selected state
 }
+
 
 @end

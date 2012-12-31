@@ -12,12 +12,22 @@
 #import <AVFoundation/AVAsset.h>
 #import <AVFoundation/AVAssetImageGenerator.h>
 #import "PubInfo.h"
+#import "MAVideoCommentTVC.h"
+#import "UMSocialControllerServiceComment.h"
 
-@interface MAVideoBodyVC : UIViewController
+@interface MAVideoBodyVC : UIViewController<UMSocialDataDelegate,UMSocialUIDelegate>{
+    UMSocialControllerServiceComment *_socialController;
+}
 
 @property(nonatomic,strong) MPMoviePlayerController *moviePlayer;
 @property(nonatomic,strong) MAVideo *curVideo;
+@property(nonatomic,weak) IBOutlet UIButton *commentsButton;
+@property(nonatomic,weak) IBOutlet UIButton *shareButton;
+@property (nonatomic, strong) UMSocialControllerService *socialController;
 
 + (UIImage*) thumbnailImageForVideo:(NSURL *)videoURL atTime:(NSTimeInterval)time;
 - (void)setCurentVideo:(MAVideo *)video;
+- (IBAction)showCommentsPage:(id)sender;
+- (IBAction)showSharePage:(id)sender;
+
 @end

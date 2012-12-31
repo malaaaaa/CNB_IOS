@@ -14,6 +14,7 @@
 @synthesize title=_title;
 @synthesize introduction=_introduction;
 @synthesize updateTime=_updateTime;
+@synthesize shareURL=_shareURL;
 
 - (id)initWithAttributes:(NSDictionary *)attributes {
     self = [super init];
@@ -24,7 +25,9 @@
     _introduction = [attributes   valueForKeyPath:@"introduction"];
     _updateTime = [attributes   valueForKeyPath:@"updateTime"];
     _URL= [attributes valueForKeyPath:@"url"];
-    
+    _videoID = [attributes   valueForKeyPath:@"videoID"];
+     _shareURL = [attributes   valueForKeyPath:@"shareURL"];
+
     return self;
 }
 + (void)getVideosWithBlock:(void (^)(NSArray *videoArray, NSError *error))block {

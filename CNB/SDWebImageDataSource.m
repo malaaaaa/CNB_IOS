@@ -51,11 +51,15 @@
 
 - (UIImage *)imageAtIndex:(NSInteger)index
 {
-    NSLog(@"mawp imageAtIndex %d",index);
     NSArray *imageUrls = [_image objectAtIndex:index];
     NSString *url = [imageUrls objectAtIndex:FULL_SIZE_INDEX];
     NSData* data = [[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:url]];
-     NSLog(@"mawp imageAtIndex url %@",url);
     return [[UIImage alloc] initWithData:data];
+}
+- (NSString *)ImageURLAtIndex:(NSInteger)index
+{
+    NSArray *imageUrls = [_image objectAtIndex:index];
+    NSString *url = [imageUrls objectAtIndex:FULL_SIZE_INDEX];
+    return url;
 }
 @end

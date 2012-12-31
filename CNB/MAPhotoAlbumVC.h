@@ -12,7 +12,7 @@
 @class SDWebImageDataSource;
 @interface MAPhotoAlbumVC : KTThumbsViewController
 
-@property (nonatomic, strong) UIActivityIndicatorView *activityIndicator;
+@property (nonatomic, weak) UIActivityIndicatorView *activityIndicator;
 @property (nonatomic, strong) NSMutableArray *imageArray;
 @property (nonatomic, strong) SDWebImageDataSource *images;
 

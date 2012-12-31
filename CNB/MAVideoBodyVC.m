@@ -15,6 +15,9 @@
 @implementation MAVideoBodyVC
 @synthesize moviePlayer=_moviePlayer;
 @synthesize curVideo=_curVideo;
+@synthesize commentsButton=_commentsButton;
+@synthesize shareButton=_shareButton;
+@synthesize socialController=_socialController;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -30,11 +33,28 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     [self playVideo];
+    
+    
+
+    NSString *socialDataID = [NSString stringWithFormat:@"%@_%@",UMSDATA_V,_curVideo.videoID];
+    NSLog(@"socialDataID=%@",socialDataID);
+    UMSocialData *socialData = [[UMSocialData alloc] initWithIdentifier:socialDataID withTitle:nil];
+    _socialController = [[UMSocialControllerServiceComment alloc] initWithUMSocialData:socialData];
+    
+    NSString *shareText = [NSString stringWithFormat:@"分享 %d",[_socialController.socialDataService.socialData getNumber:UMSNumberShare]];
+    [_shareButton setTitle:shareText forState:UIControlStateNormal];
+    NSString *commentText = [NSString stringWithFormat:@"评论 %d",[_socialController.socialDataService.socialData getNumber:UMSNumberComment]];
+    [_commentsButton setTitle:commentText forState:UIControlStateNormal];
+    
+    NSString *str=[NSString stringWithFormat:@"%@ %@",_curVideo.title,_curVideo.shareURL];
+    _socialController.socialDataService.socialData.shareText = str;
+    NSLog(@"share text is %@",_socialController.socialDataService.socialData.shareText);
+    //    _socialController.socialDataService.socialData.shareImage = _detailImageView.image;
+    
 }
 - (void)setCurentVideo:(MAVideo *)video{
     
     self.curVideo=video;
-    
 }
 - (void)playVideo
 {
@@ -50,7 +70,7 @@
     self.moviePlayer = [[MPMoviePlayerController alloc] initWithContentURL:[NSURL URLWithString:_curVideo.URL]];
     self.moviePlayer.allowsAirPlay = YES;
     //    self.moviePlayer.shouldAutoplay=NO;
-    [self.moviePlayer.view setFrame:CGRectMake(10, 50, 300, 200)];
+    [self.moviePlayer.view setFrame:CGRectMake(10, 10, 300, 200)];
     
     // 将moviePlayer的视图添加到当前视图中
     [self.view addSubview:self.moviePlayer.view];
@@ -103,5 +123,28 @@
     UIImage *thumbnailImage = thumbnailImageRef ? [[UIImage alloc] initWithCGImage:thumbnailImageRef]  : nil;
     
     return thumbnailImage;
+}
+//该方法用以实现包含Container View的 源视图控制器到到目标视图控制器的参数传递及获取当前操作
+//该方法会在视图跳转前自动执行
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    MAVideoCommentTVC *desViewController=segue.destinationViewController;
+    [desViewController setCurrentVideo:_curVideo];
+}
+
+- (IBAction)showCommentsPage:(id)sender{
+    [self.socialController setSoicalUIDelegate:self];
+    UINavigationController *commentListController = [_socialController getSocialCommentListController];
+    [self presentViewController:commentListController animated:YES completion:nil];
+}
+
+- (IBAction)showSharePage:(id)sender{
+    NSLog(@"self.socialController is %@",self.socialController);
+    [self.socialController setSoicalUIDelegate:self];
+    UINavigationController *shareListController = [_socialController getSocialShareListController];
+    [self presentViewController:shareListController animated:YES completion:nil];
+}
+-(void)didFinishGetUMSocialDataResponse:(UMSocialResponseEntity *)response
+{
+    
 }
 @end

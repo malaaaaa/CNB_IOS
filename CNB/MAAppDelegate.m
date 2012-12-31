@@ -23,7 +23,10 @@
     // Override point for customization after application launch.
     [application setStatusBarHidden:NO];
     //友盟Key的指定
+    //社会化组件
     [UMSocialData setAppKey:umeng_appkey];
+    //统计分析工具
+    [MobClick startWithAppkey:umeng_appkey];
     
     //手工指定下TabBarController代理，用于控制Bar切换事件
     UITabBarController *tabController =

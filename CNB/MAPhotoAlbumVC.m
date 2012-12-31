@@ -44,7 +44,7 @@
     
     [self fetchPhotos];
     [self setDataSource:[self photos]];
-    self.title = @"相册";
+    self.title = @"图";
     
     
 }

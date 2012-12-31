@@ -144,7 +144,9 @@
 }
 - (void)showCommentView
 {
-    UMSocialData *socialData = [[UMSocialData alloc] initWithIdentifier:@"test123" withTitle:nil];
+    NSString *socialDataID = [NSString stringWithFormat:@"%@_%@",UMSDATA_A,_curArticle.articleID];
+    NSLog(@"socialDataID=%@",socialDataID);
+    UMSocialData *socialData = [[UMSocialData alloc] initWithIdentifier:socialDataID withTitle:nil];
     UMSocialControllerServiceComment *socialController = [[UMSocialControllerServiceComment alloc] initWithUMSocialData:socialData];
     UINavigationController *commentList = [socialController getSocialCommentListController];
     [self presentViewController:commentList animated:YES completion:nil];

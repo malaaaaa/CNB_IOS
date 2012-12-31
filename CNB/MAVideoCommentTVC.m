@@ -13,7 +13,7 @@
 @end
 
 @implementation MAVideoCommentTVC
-
+@synthesize currentVideo=_currentVideo;
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
@@ -32,6 +32,8 @@
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -60,7 +62,9 @@
 {
     static NSString *CellIdentifier = @"MACellVideoComment";
     MACellVideoComment *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    
+    [cell.videoTitle setText:_currentVideo.title];
+    [cell.videoDescription setText:_currentVideo.introduction];
+
     // Configure the cell...
     
     return cell;
@@ -117,6 +121,7 @@
      [self.navigationController pushViewController:detailViewController animated:YES];
      [detailViewController release];
      */
+
 }
 
 @end

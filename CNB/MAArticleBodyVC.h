@@ -15,7 +15,7 @@
 
 @interface MAArticleBodyVC : UIViewController<  UMSocialDataDelegate >
 
-@property(nonatomic,strong) IBOutlet UIScrollView *scrollView;
+@property(nonatomic,weak) IBOutlet UIScrollView *scrollView;
 @property(nonatomic,strong) MAArticle *curArticle;
 @property(nonatomic,strong) NSArray *array;
 @property(nonatomic,strong) UMSocialControllerServiceComment *socialController;

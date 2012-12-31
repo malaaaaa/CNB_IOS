@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PubInfo.h"
+
 
 @interface MACellVideoComment : UITableViewCell
+
+@property(nonatomic,weak) IBOutlet UILabel *videoTitle;
+@property(nonatomic,weak) IBOutlet UILabel *videoDescription;
 
 @end

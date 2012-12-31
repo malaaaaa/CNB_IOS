@@ -672,9 +672,8 @@ const CGFloat ktkDefaultToolbarHeight = 44;
         [_socialBar release];
         _socialBar=nil;
     }
-    NSLog(@"currentIndex_=%d",currentIndex_);
-    NSString *socialDataID =[NSString stringWithFormat:@"CNB_UMSociaData_Photo_%d",currentIndex_];
-    NSString *socialDataTitle =[NSString stringWithFormat:@"CNB_UMSociaData_Photo_%d_Title",currentIndex_];
+    NSString *socialDataID =[NSString stringWithFormat:@"CNB_UMSociaData_Photo_%@",[self getImageIDByIndex:currentIndex_]];
+    NSString *socialDataTitle =[NSString stringWithFormat:@"CNB_UMSociaData_Photo_%@_Title",[self getImageIDByIndex:currentIndex_]];
     UMSocialData *socialData = [[UMSocialData alloc] initWithIdentifier:socialDataID withTitle:socialDataTitle];
     
     _socialBar = [[UMSocialBar alloc] initWithUMSocialData:socialData withViewController:self];
@@ -686,7 +685,7 @@ const CGFloat ktkDefaultToolbarHeight = 44;
     _socialBar.socialBarView.themeColor = UMSBarColorBlack;
     _socialBar.center = CGPointMake(160, 18);
     
-    _socialBar.socialData.shareText = @"#蓝色骨头App之相册#";
+    _socialBar.socialData.shareText = @"#蓝色骨头App之相册分享#";
     _socialBar.socialData.shareImage=[dataSource_ imageAtIndex:currentIndex_];
     _socialBar.socialData.commentImage = [dataSource_ imageAtIndex:currentIndex_];
     _socialBar.socialData.commentText = @"#蓝色骨头App#";
@@ -705,5 +704,13 @@ const CGFloat ktkDefaultToolbarHeight = 44;
         }
     }
     
+}
+
+#pragma mark -
+#pragma mark 获取图片后台存储的唯一ID
+
+- (NSString *)getImageIDByIndex:(NSInteger)index
+{
+    return [[dataSource_ ImageURLAtIndex:currentIndex_] substringFromIndex:61];
 }
 @end
