@@ -7,9 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <QuartzCore/CALayer.h>
 
-@interface MABandMembersVC : UIViewController{
-    IBOutlet UIScrollView *_scrollView;
-}
-@property(nonatomic,retain) UIScrollView *scrollView;
+@interface MABandMembersVC : UIViewController
+
+@property(nonatomic,weak) IBOutlet UIScrollView *scrollView;
+@property(nonatomic,weak) IBOutlet UIImageView *cuijian;
 @end

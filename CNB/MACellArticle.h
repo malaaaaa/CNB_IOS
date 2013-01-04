@@ -10,8 +10,8 @@
 
 @interface MACellArticle : UITableViewCell
 
-@property (nonatomic,strong) UILabel *title;
-@property (nonatomic,strong) UILabel *subTitle;
-@property (nonatomic,strong) UIImageView *thumbnail;
+@property (nonatomic,weak) IBOutlet UILabel *title;
+@property (nonatomic,weak) IBOutlet UILabel *subTitle;
+@property (nonatomic,weak) IBOutlet UIImageView *thumbnail;
 
 @end

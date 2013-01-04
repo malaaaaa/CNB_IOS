@@ -128,6 +128,17 @@
                     break;
             }
             break;
+        case 2:
+            switch (indexPath.row) {
+                case 0:
+                    //反馈
+                    [self showMailComposer];
+                    break;
+                    
+                default:
+                    break;
+            }
+            break;
             
         default:
             break;
@@ -135,7 +146,7 @@
 }
 - (void)showAccountView
 {
-    UMSocialData *socialData = [[UMSocialData alloc] initWithIdentifier:@"test321" withTitle:nil];
+    UMSocialData *socialData = [[UMSocialData alloc] initWithIdentifier:@"account" withTitle:nil];
     UMSocialControllerService *socialController = [[UMSocialControllerService alloc] initWithUMSocialData:socialData];
     socialController.soicalUIDelegate = self;
     //        [socialController setUMSocialUIDelegate:self];
@@ -153,5 +164,66 @@
     NSLog(@"social Account response is %@",response);
     
 //    [_activityIndicatorView stopAnimating];
+}
+
+#pragma mark - MailComposer Methods
+- (void)showMailComposer {
+    Class mailClass = (NSClassFromString(@"MFMailComposeViewController"));
+    if (mailClass != nil) {
+        // Test to ensure that device is configured for sending emails.
+        if ([mailClass canSendMail]) {
+            MFMailComposeViewController *picker = [[MFMailComposeViewController alloc] init];
+            picker.mailComposeDelegate = self;
+            NSArray *array = [NSArray arrayWithObjects:@"malaaaaa@gmail.com", nil];
+            [picker setToRecipients:array];
+            NSString *strVersion = @"蓝色骨头App 建议与意见";
+            [picker setSubject:strVersion];
+            // Fill out the email body text
+            NSString *emailBody = @"";
+            [picker setMessageBody:emailBody isHTML:NO];
+            picker.navigationBar.tintColor = [UIColor blackColor];
+            [self presentViewController:picker animated:YES completion:nil];
+            //修改title 官方不建议
+            //picker.topViewController.navigationItem.title = @"意见反馈";
+        } else {
+            // Device is not configured for sending emails, so notify user.
+            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"不能发送Email" message:@"本设备还未进行邮箱设置" delegate:self cancelButtonTitle:@"OK,我之后再试" otherButtonTitles:nil];
+            [alertView show];
+        }
+    }
+}
+
+// Dismisses the Mail composer when the user taps Cancel or Send.
+- (void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error {
+    NSString *resultTitle;
+    NSString *resultMsg;
+    [self dismissViewControllerAnimated:YES completion:nil];
+//    return;
+    switch (result) {
+        case MFMailComposeResultCancelled:
+            resultTitle = @"信息";
+            resultMsg = @"已取消发送邮件";
+            break;
+        case MFMailComposeResultSaved:
+            resultTitle = @"信息";
+            resultMsg = @"邮件已保存";
+            break;
+        case MFMailComposeResultSent:
+            resultTitle = @"信息";
+            resultMsg = @"邮件已成功发送";
+            break;
+        case MFMailComposeResultFailed:
+            resultTitle = @"警告";
+            resultMsg = @"对不起,发送失败.请稍后再试";
+            break;
+        default:
+            resultTitle = @"警告";
+            resultMsg = @"对不起,邮件发送失败";
+            break;
+    }
+    // Notifies user of any Mail Composer errors received with an Alert View dialog.
+    UIAlertView *mailAlertView = [[UIAlertView alloc] initWithTitle:resultTitle message:resultMsg delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    [mailAlertView show];
+//    [self dismissViewControllerAnimated:YES completion:nil];
 }
 @end

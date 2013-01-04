@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "UMSocialControllerService.h"
+#import <MessageUI/MessageUI.h>
+#import <MessageUI/MFMailComposeViewController.h>
 typedef enum
 {
     UMAccountOauth,
@@ -22,7 +24,8 @@ typedef enum
 @interface MAConfigurationTVC : UITableViewController<
 UIActionSheetDelegate,
 UMSocialDataDelegate,
-UMSocialUIDelegate
+UMSocialUIDelegate,
+MFMailComposeViewControllerDelegate
 >
 
 - (void)showAccountView;

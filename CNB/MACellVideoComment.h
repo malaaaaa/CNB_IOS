@@ -13,6 +13,6 @@
 @interface MACellVideoComment : UITableViewCell
 
 @property(nonatomic,weak) IBOutlet UILabel *videoTitle;
-@property(nonatomic,weak) IBOutlet UILabel *videoDescription;
+@property(nonatomic,weak) IBOutlet UITextView *videoDescription;
 
 @end

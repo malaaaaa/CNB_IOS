@@ -101,7 +101,19 @@
                     NSData *imageData = [[NSData alloc]initWithContentsOfURL:[NSURL URLWithString:articlebody.content]];
                     [imageView setImage:[UIImage imageWithData:imageData]];
                     [self.scrollView addSubview:imageView];
-                    height +=imageHeight;
+//                    height+=imageHeight;
+                    CALayer *layer= [imageView layer];
+                    layer.borderColor=[[UIColor blackColor] CGColor];
+                    layer.borderWidth=1.0f;
+                    
+                    //阴影偏移
+                    layer.shadowOffset=CGSizeMake(2, 2);
+                    //阴影透明度
+                    layer.shadowOpacity=0.5;
+                    //阴影半径
+                    layer.shadowRadius=0.5;
+                    
+                    height +=imageHeight+5;
                 }
                 //填充文字
                 else if ([articlebody.type isEqualToString:CONTENTTYPE_TEXT]){

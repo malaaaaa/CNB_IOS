@@ -79,6 +79,17 @@ static BOOL _reloading=NO;
     NSData *imageData = [[NSData alloc]initWithContentsOfURL:[NSURL URLWithString:article.thumbImagePath]];
     [cell.thumbnail setImage:[UIImage imageWithData:imageData]];
     
+    CALayer *layer= [cell.thumbnail layer];
+    layer.borderColor=[[UIColor blackColor] CGColor];
+    layer.borderWidth=0.0f;
+    
+    //阴影偏移
+    layer.shadowOffset=CGSizeMake(1, 1);
+    //阴影透明度
+    layer.shadowOpacity=0.3;
+    //阴影半径
+    layer.shadowRadius=0.3;
+    
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     // Configure the cell...
     

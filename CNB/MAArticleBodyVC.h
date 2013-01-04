@@ -12,7 +12,7 @@
 #import "MAArticleBody.h"
 #import "UMSocialBar.h"
 #import "UMSocialControllerService.h"
-
+#import <QuartzCore/CALayer.h>
 @interface MAArticleBodyVC : UIViewController<  UMSocialDataDelegate >
 
 @property(nonatomic,weak) IBOutlet UIScrollView *scrollView;
