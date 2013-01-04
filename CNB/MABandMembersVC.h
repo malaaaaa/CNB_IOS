@@ -13,4 +13,10 @@
 
 @property(nonatomic,weak) IBOutlet UIScrollView *scrollView;
 @property(nonatomic,weak) IBOutlet UIImageView *cuijian;
+@property(nonatomic,weak) IBOutlet UIImageView *liuyuan;
+@property(nonatomic,weak) IBOutlet UIImageView *xiajia;
+@property(nonatomic,weak) IBOutlet UIImageView *eddie;
+@property(nonatomic,weak) IBOutlet UIImageView *liuyue;
+@property(nonatomic,weak) IBOutlet UIImageView *beibei;
+@property(nonatomic,weak) IBOutlet UIImageView *zhangyongguang;
 @end
