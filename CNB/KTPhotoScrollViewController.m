@@ -66,8 +66,7 @@ const CGFloat ktkDefaultToolbarHeight = 44;
     
     [dataSource_ release], dataSource_ = nil;
     //Mawp_02
-    [_socialBar release], _socialBar=nil;
-    [_socialButton release],_socialButton=nil;
+    _socialBar.socialBarDelegate = nil;
     [super dealloc];
 }
 
@@ -154,9 +153,6 @@ const CGFloat ktkDefaultToolbarHeight = 44;
     //Mawp_03
     //   [toolbarItems addObject:nextButton_];
     [toolbarItems addObject:space];
-    //Mawp_02
-    _socialButton=[[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"pull.png"] style:UIBarButtonItemStylePlain target:self action:@selector(showSocialBar)];
-    [toolbarItems addObject:_socialButton];
     
     
     if (trashButton) [toolbarItems addObject:trashButton];
@@ -230,7 +226,7 @@ const CGFloat ktkDefaultToolbarHeight = 44;
             [toolbar_ removeFromSuperview];
         }
     }
-    
+
 }
 
 - (void)didReceiveMemoryWarning
@@ -374,7 +370,6 @@ const CGFloat ktkDefaultToolbarHeight = 44;
         // Turn off zooming.
         [currentPhotoView turnOffZoom];
     }
-    
 }
 
 - (void)unloadPhoto:(NSInteger)index
@@ -402,7 +397,9 @@ const CGFloat ktkDefaultToolbarHeight = 44;
     
     [self setTitleWithCurrentPhotoIndex];
     [self toggleNavButtons];
-
+    
+    //Mawp_02 解决评论后触发Viewdisapper刷新为原始startWithIndex_图片的问题
+    startWithIndex_=newIndex;
 }
 
 
@@ -498,6 +495,7 @@ const CGFloat ktkDefaultToolbarHeight = 44;
     else{
         [[self view] addSubview:toolbar_];
         [toolbar_ addSubview:_socialBar];
+//        [self.view addSubview:_socialBar];
         
     }
 }
@@ -555,9 +553,6 @@ const CGFloat ktkDefaultToolbarHeight = 44;
 
 - (void)hideChrome
 {
-    //Mawp_02
-    [_socialBar removeFromSuperview];
-    
     if (chromeHideTimer_ && [chromeHideTimer_ isValid]) {
         [chromeHideTimer_ invalidate];
         chromeHideTimer_ = nil;
@@ -572,8 +567,13 @@ const CGFloat ktkDefaultToolbarHeight = 44;
 
 - (void)startChromeDisplayTimer
 {
+    //Mawp_02
+    [self showSocialBar];
+    
     [self cancelChromeDisplayTimer];
-    chromeHideTimer_ = [NSTimer scheduledTimerWithTimeInterval:5.0
+    //Mawp_02
+    //将自动消失的5秒钟限制改成很长，类似永久停留，目的是解决当用户评论时socialBar消失导致程序崩溃
+    chromeHideTimer_ = [NSTimer scheduledTimerWithTimeInterval:3600.0
                                                         target:self
                                                       selector:@selector(hideChrome)
                                                       userInfo:nil
@@ -669,9 +669,11 @@ const CGFloat ktkDefaultToolbarHeight = 44;
     //Mawp_02
     if (_socialBar) {
         [_socialBar removeFromSuperview];
-        [_socialBar release];
-        _socialBar=nil;
+//        不知为何， _socialBar 不能释放，否则可能在评论视图dismiss后程序崩溃
+//        [_socialBar release];
+//        _socialBar=nil;
     }
+    
     NSString *socialDataID =[NSString stringWithFormat:@"CNB_UMSociaData_Photo_%@",[self getImageIDByIndex:currentIndex_]];
     NSString *socialDataTitle =[NSString stringWithFormat:@"CNB_UMSociaData_Photo_%@_Title",[self getImageIDByIndex:currentIndex_]];
     UMSocialData *socialData = [[UMSocialData alloc] initWithIdentifier:socialDataID withTitle:socialDataTitle];

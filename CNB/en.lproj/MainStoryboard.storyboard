@@ -17,16 +17,16 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QS8-93-RLi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="718" y="-149"/>
+            <point key="canvasLocation" x="746" y="-269"/>
         </scene>
         <!--Navigation Controller - 图-->
         <scene sceneID="B18-Dh-e7J">
             <objects>
                 <navigationController definesPresentationContext="YES" id="Be7-Py-5WS" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="图" image="first" id="pvL-OV-DbU"/>
-                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackTranslucent"/>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ksk-Hy-ndH">
+                    <tabBarItem key="tabBarItem" title="图" image="tabbar_photo" id="pvL-OV-DbU"/>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackOpaque"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="blackOpaque" prompted="NO"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="blackOpaque" id="ksk-Hy-ndH">
                         <rect key="frame" x="0.0" y="0.0" width="0.0" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -36,7 +36,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wSw-La-EFz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="213" y="-138"/>
+            <point key="canvasLocation" x="225" y="-241"/>
         </scene>
         <!--ArticleTVC - 文字-->
         <scene sceneID="ugI-lJ-9rq">
@@ -141,10 +141,10 @@
         <scene sceneID="feH-mk-nSO">
             <objects>
                 <navigationController definesPresentationContext="YES" id="v4B-ak-VhJ" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="文字" image="second" id="h0I-Qs-BeA"/>
-                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackTranslucent"/>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Xog-FX-OIH">
+                    <tabBarItem key="tabBarItem" title="文字" image="tabbar_text" id="h0I-Qs-BeA"/>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackOpaque"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="blackOpaque" prompted="NO"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="blackOpaque" id="Xog-FX-OIH">
                         <rect key="frame" x="0.0" y="0.0" width="0.0" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -158,16 +158,16 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fX5-NN-yqp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="225" y="484"/>
+            <point key="canvasLocation" x="232" y="508"/>
         </scene>
         <!--Navigation Controller - 更多-->
         <scene sceneID="vbF-PA-AOL">
             <objects>
                 <navigationController definesPresentationContext="YES" id="ENb-b9-mRd" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="更多" id="kQk-iD-Hk5"/>
+                    <tabBarItem key="tabBarItem" title="更多" image="tabbar_more" id="kQk-iD-Hk5"/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackTranslucent"/>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="TdX-1q-BVi">
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="blackOpaque" prompted="NO"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="blackOpaque" id="TdX-1q-BVi">
                         <rect key="frame" x="0.0" y="-44" width="0.0" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1568,7 +1568,7 @@ OH－YE－
                             <tableViewSection headerTitle="关于崔健及乐队" id="uZI-BD-Bfp">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="jKa-lj-eTU" style="IBUITableViewCellStyleDefault" id="aTS-dx-eIX">
-                                        <rect key="frame" x="0.0" y="46" width="320" height="45"/>
+                                        <rect key="frame" x="0.0" y="46" width="320" height="46"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="10" y="1" width="280" height="43"/>
@@ -1590,32 +1590,12 @@ OH－YE－
                                             <segue destination="lJ8-yz-Hhf" kind="push" identifier="" id="ofu-Yv-JIN"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="qfT-uL-Ju8" style="IBUITableViewCellStyleDefault" id="TAF-cZ-BzO">
-                                        <rect key="frame" x="0.0" y="91" width="320" height="45"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="10" y="0.0" width="280" height="43"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="专辑作品" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="qfT-uL-Ju8">
-                                                    <rect key="frame" x="10" y="0.0" width="260" height="43"/>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                </label>
-                                            </subviews>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        </view>
-                                        <connections>
-                                            <segue destination="gdn-Gz-MIy" kind="push" id="R1j-Js-QQm"/>
-                                        </connections>
-                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                             <tableViewSection headerTitle="登陆评论" id="zz9-Lm-h7K">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="EkI-Fd-omy" style="IBUITableViewCellStyleDefault" id="Hmd-At-5Dr">
-                                        <rect key="frame" x="0.0" y="182" width="320" height="46"/>
+                                        <rect key="frame" x="0.0" y="138" width="320" height="46"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="10" y="1" width="300" height="43"/>
@@ -1636,7 +1616,7 @@ OH－YE－
                             <tableViewSection headerTitle="反馈" id="hEX-SP-db3">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="YVN-45-nKU" style="IBUITableViewCellStyleDefault" id="CRB-AM-jwr">
-                                        <rect key="frame" x="0.0" y="274" width="320" height="46"/>
+                                        <rect key="frame" x="0.0" y="230" width="320" height="46"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="10" y="1" width="300" height="43"/>
@@ -1657,7 +1637,7 @@ OH－YE－
                             <tableViewSection headerTitle="关于应用" id="15M-du-lWr">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="WQA-2C-cJg" style="IBUITableViewCellStyleDefault" id="eYY-mE-fMK">
-                                        <rect key="frame" x="0.0" y="366" width="320" height="45"/>
+                                        <rect key="frame" x="0.0" y="322" width="320" height="45"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="10" y="1" width="280" height="43"/>
@@ -1677,7 +1657,7 @@ OH－YE－
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="tDc-r3-yGd" style="IBUITableViewCellStyleDefault" id="KNM-Vs-Zg8">
-                                        <rect key="frame" x="0.0" y="411" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="367" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="10" y="0.0" width="280" height="43"/>
@@ -1696,8 +1676,8 @@ OH－YE－
                                             <segue destination="8ek-rD-ujQ" kind="push" id="lGV-gB-Xtr"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="90s-hp-2Ph">
-                                        <rect key="frame" x="0.0" y="455" width="320" height="45"/>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="90s-hp-2Ph">
+                                        <rect key="frame" x="0.0" y="411" width="320" height="45"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="10" y="0.0" width="300" height="43"/>
@@ -1731,7 +1711,7 @@ OH－YE－
                             <outlet property="delegate" destination="UEW-7K-tJS" id="dsB-Bh-Jug"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="更多" image="second.png" id="QaG-8J-z4c"/>
+                    <tabBarItem key="tabBarItem" title="更多" image="moreButtonActive.png" id="QaG-8J-z4c"/>
                     <navigationItem key="navigationItem" title="更多" id="5fu-1b-4vF"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hpD-Fu-E6l" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1926,7 +1906,7 @@ OH－YE－
             </objects>
             <point key="canvasLocation" x="6268" y="1668"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Table View Controller - Item-->
         <scene sceneID="Olm-2K-RUz">
             <objects>
                 <tableViewController id="gdn-Gz-MIy" sceneMemberID="viewController">
@@ -3105,6 +3085,7 @@ OH－YE－
                             <outlet property="delegate" destination="gdn-Gz-MIy" id="MKW-49-Wp2"/>
                         </connections>
                     </tableView>
+                    <tabBarItem key="tabBarItem" title="Item" id="vFm-m5-lTA"/>
                     <navigationItem key="navigationItem" id="VAH-5Y-9oF"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                 </tableViewController>
@@ -5679,7 +5660,7 @@ Cg
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eSj-0g-WdG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="742" y="1110"/>
+            <point key="canvasLocation" x="741" y="1166"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="VjJ-OL-37w">
@@ -5759,16 +5740,16 @@ Cg
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e0V-Fz-Ror" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6289" y="1707"/>
+            <point key="canvasLocation" x="6371" y="1763"/>
         </scene>
         <!--Navigation Controller - 现场-->
         <scene sceneID="nz9-xP-Opg">
             <objects>
                 <navigationController definesPresentationContext="YES" id="LkH-7x-wEI" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="现场" image="first.png" id="yye-Gk-URX"/>
-                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackTranslucent"/>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="kuG-Yn-mCj">
+                    <tabBarItem key="tabBarItem" title="现场" image="tabbar_video" id="yye-Gk-URX"/>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackOpaque"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="blackOpaque" prompted="NO"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="blackOpaque" id="kuG-Yn-mCj">
                         <rect key="frame" x="0.0" y="-44" width="0.0" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -5778,7 +5759,7 @@ Cg
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ydb-Ai-7li" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="225" y="1110"/>
+            <point key="canvasLocation" x="262" y="1187"/>
         </scene>
         <!--Video BodyVC-->
         <scene sceneID="AGc-aF-k3Q">
@@ -5851,7 +5832,26 @@ Cg
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gmU-FB-HFy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1256" y="1043"/>
+            <point key="canvasLocation" x="1239" y="1121"/>
+        </scene>
+        <!--Navigation Controller - 专辑作品-->
+        <scene sceneID="vZp-Ei-Gf9">
+            <objects>
+                <navigationController definesPresentationContext="YES" id="xNu-9l-AWE" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="专辑作品" image="tabbar_album.png" id="abz-1W-MwP"/>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackOpaque"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="blackOpaque" prompted="NO"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="blackOpaque" id="h2t-Rv-Z6N">
+                        <rect key="frame" x="0.0" y="0.0" width="0.0" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="gdn-Gz-MIy" kind="relationship" relationship="rootViewController" id="l78-Oi-v55"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="itX-yq-heK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="807" y="2129"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="A7Y-Wg-ena">
@@ -5930,7 +5930,7 @@ Cg
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XPp-UV-zdU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6315" y="1758"/>
+            <point key="canvasLocation" x="6673" y="1680"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="6a3-rp-7TN">
@@ -6028,12 +6028,13 @@ JIN JIN JIN.....
                         <segue destination="Be7-Py-5WS" kind="relationship" relationship="viewControllers" id="4Hy-DL-9DK"/>
                         <segue destination="v4B-ak-VhJ" kind="relationship" relationship="viewControllers" id="qwS-qs-7I6"/>
                         <segue destination="LkH-7x-wEI" kind="relationship" relationship="viewControllers" id="76U-SN-gst"/>
-                        <segue destination="ENb-b9-mRd" kind="relationship" relationship="viewControllers" id="rFC-gh-pEu"/>
+                        <segue destination="xNu-9l-AWE" kind="relationship" relationship="viewControllers" id="eor-ON-VWz"/>
+                        <segue destination="ENb-b9-mRd" kind="relationship" relationship="viewControllers" id="wH8-pT-2ku"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="14" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-692" y="1110"/>
+            <point key="canvasLocation" x="-700" y="2022"/>
         </scene>
         <!--Video CommentTVC-->
         <scene sceneID="48K-TP-ej1">
@@ -6265,12 +6266,14 @@ YI YE---YI YE---
         <image name="cover_xcz.png" width="300" height="300"/>
         <image name="cuijian.png" width="300" height="300"/>
         <image name="eddie.png" width="300" height="300"/>
-        <image name="first" width="16" height="16"/>
-        <image name="first.png" width="30" height="30"/>
         <image name="liuyuan.png" width="300" height="300"/>
         <image name="liuyue.png" width="300" height="300"/>
-        <image name="second" width="16" height="16"/>
-        <image name="second.png" width="30" height="30"/>
+        <image name="moreButtonActive.png" width="16" height="16"/>
+        <image name="tabbar_album.png" width="30" height="30"/>
+        <image name="tabbar_more" width="16" height="16"/>
+        <image name="tabbar_photo" width="16" height="16"/>
+        <image name="tabbar_text" width="16" height="16"/>
+        <image name="tabbar_video" width="16" height="16"/>
         <image name="videoplay.png" width="150" height="150"/>
         <image name="xiajia.png" width="300" height="300"/>
         <image name="zhangyongguang.png" width="300" height="300"/>

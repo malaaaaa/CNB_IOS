@@ -43,7 +43,6 @@
     
     //Mawp_02
     UMSocialBar *_socialBar;
-    UIBarButtonItem *_socialButton;
 }
 
 @property (nonatomic, assign) UIStatusBarStyle statusBarStyle;
