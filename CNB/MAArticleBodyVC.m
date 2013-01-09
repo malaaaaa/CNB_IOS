@@ -58,7 +58,7 @@
     static CGFloat height=0;
     CGFloat textWidth=320;
     CGFloat imageWidth=300;
-    CGFloat imageHeight=300;
+    CGFloat imageHeight=200;
     CGFloat commentButtonHeight=50;//评论按钮占用高度
     //为解决UITextView上下左右8px的 padding，导致计算高度不准确，地点一
     CGFloat offset=16.0;
@@ -75,11 +75,12 @@
     
     //时间
     CGFloat timeheight=20.0;
-    UILabel *timeLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, height, textWidth, timeheight)];
+    UILabel *timeLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, height, textWidth-20, timeheight)];
     [timeLabel setNumberOfLines:0];
     timeLabel.text=_curArticle.updateTime;
     [timeLabel setTextAlignment:NSTextAlignmentRight];
     [timeLabel setFont:[UIFont systemFontOfSize:13]];
+    [timeLabel setTextColor:[UIColor lightGrayColor]];
     [self.scrollView addSubview:timeLabel];
     height+=timeheight;
     
@@ -139,9 +140,14 @@
                 }
                 
             }
-            _commentsButton = [[UIButton alloc] initWithFrame:CGRectMake(320-44, height+3, 44, 44)];
-            [_commentsButton setBackgroundColor:[UIColor blueColor]];
-            [_commentsButton setTitle:@"评论" forState:UIControlStateNormal];
+            UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(320-66, height+3, 40, 46)];
+            label.text=@"评论";
+            label.font = [UIFont systemFontOfSize:13];
+            [self.scrollView addSubview:label];
+            
+            _commentsButton = [[UIButton alloc] initWithFrame:CGRectMake(320-46, height+3, 40, 46)];
+            [_commentsButton setBackgroundImage:[UIImage imageNamed:@"comment"] forState:UIControlStateNormal];
+//            [_commentsButton setTitle:@"评论" forState:UIControlStateNormal];
             [_commentsButton addTarget:self action:@selector(showCommentView) forControlEvents:UIControlEventTouchUpInside];
             height+=commentButtonHeight;
             [self.scrollView addSubview:_commentsButton];

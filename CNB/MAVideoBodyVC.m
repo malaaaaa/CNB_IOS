@@ -41,11 +41,12 @@
     UMSocialData *socialData = [[UMSocialData alloc] initWithIdentifier:socialDataID withTitle:nil];
     _socialController = [[UMSocialControllerServiceComment alloc] initWithUMSocialData:socialData];
     
+    /*
     NSString *shareText = [NSString stringWithFormat:@"分享 %d",[_socialController.socialDataService.socialData getNumber:UMSNumberShare]];
     [_shareButton setTitle:shareText forState:UIControlStateNormal];
     NSString *commentText = [NSString stringWithFormat:@"评论 %d",[_socialController.socialDataService.socialData getNumber:UMSNumberComment]];
     [_commentsButton setTitle:commentText forState:UIControlStateNormal];
-    
+    */
     NSString *str=[NSString stringWithFormat:@"%@ %@",_curVideo.title,_curVideo.shareURL];
     _socialController.socialDataService.socialData.shareText = str;
     NSLog(@"share text is %@",_socialController.socialDataService.socialData.shareText);

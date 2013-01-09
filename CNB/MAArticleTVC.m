@@ -149,12 +149,12 @@ static BOOL _reloading=NO;
 #pragma mark -
 #pragma mark UIScrollViewDelegate Methods
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    ZNLog(@"DidScroll");
+//    ZNLog(@"DidScroll");
     [_refreshHeaderView egoRefreshScrollViewDidScroll:scrollView];
 }
 
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
-    ZNLog(@"EndDragging");
+//    ZNLog(@"EndDragging");
     [_refreshHeaderView egoRefreshScrollViewDidEndDragging:scrollView];
 }
 
@@ -164,7 +164,7 @@ static BOOL _reloading=NO;
 #pragma mark -
 #pragma mark EGORefreshTableHeaderDelegate Methods
 - (void)egoRefreshTableHeaderDidTriggerRefresh:(EGORefreshTableHeaderView *)view {
-    ZNLog(@"DidTriggerRefresh");
+//    ZNLog(@"DidTriggerRefresh");
     [self reloadTableViewDataSource];
     [self performSelector:@selector(doneLoadingTableViewData) withObject:nil afterDelay:1.0];
     

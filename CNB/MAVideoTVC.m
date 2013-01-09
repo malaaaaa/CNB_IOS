@@ -72,8 +72,9 @@ static BOOL _reloading=NO;
     MACellVideo *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     NSLog(@"count=%d",[_videoArray count]);
     MAVideo *video = [_videoArray objectAtIndex:indexPath.row];
-    NSLog(@"aaa=%@",video.title);
+    NSLog(@"aaa=%@",video.description);
     [cell.title setText:video.title];
+    [cell.note setText:video.introduction];
     
     return cell;
 }
