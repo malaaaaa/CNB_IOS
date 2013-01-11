@@ -12,6 +12,8 @@
 @synthesize title=_title;
 @synthesize subTitle=_subTitle;
 @synthesize thumbnail=_thumbnail;
+@synthesize activity=_activity;
+@synthesize loadMore=_loadMore;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {

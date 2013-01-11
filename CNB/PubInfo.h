@@ -10,6 +10,7 @@
 #define CNB_PubInfo_h
 #import "ZNLog.h"
 #import "AFAppDotNetAPIClient.h"
+#import "MAToolBox.h"
 
 //内容类型
 #define CONTENTTYPE_IMAGE    @"0" //图片

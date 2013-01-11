@@ -16,6 +16,7 @@
 @synthesize title=_title;
 @synthesize thumbImagePath=_thumbImagePath;
 @synthesize updateTime=_updateTime;
+@synthesize fullUpdateTime=_fullUpdateTime;
 
 - (id)initWithAttributes:(NSDictionary *)attributes {
     self = [super init];
@@ -23,17 +24,18 @@
         return nil;
     }
     _title = [attributes   valueForKeyPath:@"title"];
-    NSLog(@"title=%@",_title);
     _subTitle = [attributes   valueForKeyPath:@"subTitle"];
     _thumbImagePath = [attributes   valueForKeyPath:@"thumbImagePath"];
     _articleID= [attributes valueForKeyPath:@"articleID"];
     _updateTime=[attributes valueForKeyPath:@"updateTime"];
+    _fullUpdateTime=[attributes valueForKeyPath:@"fullUpdateTime"];
     
     
     return self;
 }
-+ (void)getArticlesWithBlock:(void (^)(NSArray *article, NSError *error))block {
-    [[AFAppDotNetAPIClient sharedClient] getPath:@"article" parameters:nil success:^(AFHTTPRequestOperation *operation, id JSON) {
++ (void)getArticlesWithBlock:(void (^)(NSMutableArray *article, NSError *error))block Parameter:(NSString *)para{
+      NSString *path =[NSString stringWithFormat:@"%@/%@",@"article/afterUpdatetime",para];
+    [[AFAppDotNetAPIClient sharedClient] getPath:path parameters:nil success:^(AFHTTPRequestOperation *operation, id JSON) {
         NSMutableArray *mutableObjects=nil;
         //id body是为了处理服务端单条数据的JSON格式没有[]导致直接解析成NSArray失败而存在
         id body = [JSON valueForKeyPath:@"vArticle"];
@@ -55,15 +57,16 @@
             }
         }
         
-        NSLog(@"des===%d",[mutableObjects count]);
-        
+        NSLog(@"des===%d",[mutableObjects count]);        
         if (block) {
             
-            block([NSArray arrayWithArray:mutableObjects], nil);
+//            block([NSArray arrayWithArray:mutableObjects], nil);
+            block(mutableObjects, nil);
         }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         if (block) {
-            block([NSArray array], error);
+//            block([NSArray array], error);
+            block([NSMutableArray array], error);
         }
     }];
 }

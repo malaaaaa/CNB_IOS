@@ -16,8 +16,8 @@
 @interface MAArticleTVC : UITableViewController<EGORefreshTableHeaderDelegate,UIScrollViewDelegate>
 
 
-@property (nonatomic,strong) IBOutlet UITableView *articleTableView;
-@property (nonatomic,strong) NSArray *array;
+@property (nonatomic,weak) IBOutlet UITableView *articleTableView;
+@property (nonatomic,strong) NSMutableArray *array;
 @property (nonatomic,strong) EGORefreshTableHeaderView *refreshHeaderView;
 @property (nonatomic,weak) IBOutlet UIActivityIndicatorView *activityIndicatorView;
 @property (nonatomic,strong) NSString *upDown;

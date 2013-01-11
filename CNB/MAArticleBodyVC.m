@@ -105,12 +105,12 @@
 //                    height+=imageHeight;
                     CALayer *layer= [imageView layer];
                     layer.borderColor=[[UIColor blackColor] CGColor];
-                    layer.borderWidth=1.0f;
+                    layer.borderWidth=0.5f;
                     
                     //阴影偏移
                     layer.shadowOffset=CGSizeMake(2, 2);
                     //阴影透明度
-                    layer.shadowOpacity=0.5;
+                    layer.shadowOpacity=0.3;
                     //阴影半径
                     layer.shadowRadius=0.5;
                     

@@ -16,7 +16,8 @@
 @property (nonatomic,strong) NSString *subTitle;
 @property (nonatomic,strong) NSString *updateTime;
 @property (nonatomic,strong) NSString *thumbImagePath;
+@property (nonatomic,strong) NSString *fullUpdateTime;
 
 - (id)initWithAttributes:(NSDictionary *)attributes;
-+ (void)getArticlesWithBlock:(void (^)(NSArray *article, NSError *error))block;
++ (void)getArticlesWithBlock:(void (^)(NSMutableArray *article, NSError *error))block Parameter:(NSString *)para;
 @end

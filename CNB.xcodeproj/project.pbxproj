@@ -31,6 +31,7 @@
 		D33510901689455400682A51 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D335108F1689455400682A51 /* MapKit.framework */; };
 		D33510AB1689A99F00682A51 /* MAConfigurationTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D33510AA1689A99F00682A51 /* MAConfigurationTVC.m */; };
 		D343CA0A168C3BC90063E5E9 /* MARootTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = D343CA09168C3BC90063E5E9 /* MARootTabBarController.m */; };
+		D347F9E0169E66C000256551 /* MAToolBox.m in Sources */ = {isa = PBXBuildFile; fileRef = D347F9DF169E66C000256551 /* MAToolBox.m */; };
 		D349149D16995DA50041FB34 /* tabbar_text@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D349149B16995DA50041FB34 /* tabbar_text@2x.png */; };
 		D349149E16995DA50041FB34 /* tabbar_text.png in Resources */ = {isa = PBXBuildFile; fileRef = D349149C16995DA50041FB34 /* tabbar_text.png */; };
 		D34914A116995F640041FB34 /* tabbar_video.png in Resources */ = {isa = PBXBuildFile; fileRef = D349149F16995F640041FB34 /* tabbar_video.png */; };
@@ -192,6 +193,8 @@
 		D33510AA1689A99F00682A51 /* MAConfigurationTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MAConfigurationTVC.m; sourceTree = "<group>"; };
 		D343CA08168C3BC90063E5E9 /* MARootTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MARootTabBarController.h; sourceTree = "<group>"; };
 		D343CA09168C3BC90063E5E9 /* MARootTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MARootTabBarController.m; sourceTree = "<group>"; };
+		D347F9DE169E66C000256551 /* MAToolBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MAToolBox.h; sourceTree = "<group>"; };
+		D347F9DF169E66C000256551 /* MAToolBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MAToolBox.m; sourceTree = "<group>"; };
 		D349149B16995DA50041FB34 /* tabbar_text@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar_text@2x.png"; sourceTree = "<group>"; };
 		D349149C16995DA50041FB34 /* tabbar_text.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabbar_text.png; sourceTree = "<group>"; };
 		D349149F16995F640041FB34 /* tabbar_video.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabbar_video.png; sourceTree = "<group>"; };
@@ -702,6 +705,8 @@
 				D3E68D07167EBDC900C1E026 /* ZNLog.h */,
 				D3E68D08167EBDC900C1E026 /* ZNLog.m */,
 				D375297A1663466E0006DFDA /* PubInfo.h */,
+				D347F9DE169E66C000256551 /* MAToolBox.h */,
+				D347F9DF169E66C000256551 /* MAToolBox.m */,
 			);
 			name = Pub;
 			sourceTree = "<group>";
@@ -966,6 +971,7 @@
 				D3351080168944FB00682A51 /* UMSocialBarView.m in Sources */,
 				D33510AB1689A99F00682A51 /* MAConfigurationTVC.m in Sources */,
 				D343CA0A168C3BC90063E5E9 /* MARootTabBarController.m in Sources */,
+				D347F9E0169E66C000256551 /* MAToolBox.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

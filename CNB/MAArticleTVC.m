@@ -19,8 +19,16 @@
 @synthesize upDown=_upDown;
 @synthesize activityIndicatorView=_activityIndicatorView;
 
-//NSString *code=nil;
+//下拉更新更新标志
 static BOOL _reloading=NO;
+//最后一条纪录更新时间
+static NSString *lastDateTime=@"2099-01-01T00:00:00+08:00";
+//载入更多功能更新标志
+static BOOL _moreLoading=NO;
+//每次刷新TableView纪录数量
+static int numbersPerPage=4;
+//全部更新完成的标志
+static BOOL isNoData=NO;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -37,7 +45,7 @@ static BOOL _reloading=NO;
     
     [self.activityIndicatorView setHidden:NO];
     [self.activityIndicatorView startAnimating];
-    [self reload];
+    [self upReload];
     
     //定义下拉刷新历史记录
     _refreshHeaderView = [[EGORefreshTableHeaderView alloc] initWithFrame:CGRectMake(0.0f, -55, 320, 55)];
@@ -65,34 +73,73 @@ static BOOL _reloading=NO;
 {
     
     // Return the number of rows in the section.
-    return [_array count];
+    if (numbersPerPage>[_array count]) {
+        return [_array count];
+    }
+    return [_array count]+1;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    
+    int nodeCount = [_array count];
     static NSString *CellIdentifier = @"MACellArticle";
     MACellArticle *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     NSLog(@"count=%d indexpath=%d",[_array count],indexPath.row);
-    MAArticle *article = [_array objectAtIndex:indexPath.row];
-    [cell.title setText:article.title];
-    [cell.subTitle setText:article.subTitle];
-    NSData *imageData = [[NSData alloc]initWithContentsOfURL:[NSURL URLWithString:article.thumbImagePath]];
-    [cell.thumbnail setImage:[UIImage imageWithData:imageData]];
     
-    CALayer *layer= [cell.thumbnail layer];
-    layer.borderColor=[[UIColor blackColor] CGColor];
-    layer.borderWidth=0.0f;
-    
-    //阴影偏移
-    layer.shadowOffset=CGSizeMake(1, 1);
-    //阴影透明度
-    layer.shadowOpacity=0.3;
-    //阴影半径
-    layer.shadowRadius=0.3;
-    
-    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-    // Configure the cell...
-    
+    if (nodeCount+1 > numbersPerPage && [indexPath row] == nodeCount ) {
+        [cell.title setHidden:YES];
+        [cell.subTitle setHidden:YES];
+        [cell.thumbnail setHidden:YES];
+        [cell.loadMore setHidden:NO];
+        cell.loadMore.text=@"点击载入更多";
+        cell.accessoryType=UITableViewCellAccessoryNone;
+        if (isNoData==NO) {
+            if (_moreLoading) {
+                [cell.activity setHidden:NO];
+                [cell.activity startAnimating];
+            }
+            else{
+                [cell.activity setHidden:YES];
+                [cell.activity stopAnimating];
+            }
+        }
+        else {
+            [cell.activity setHidden:YES];
+            [cell.activity stopAnimating];
+            cell.loadMore.text=@"不要再点了，这次真的木有了-_-!";
+            cell.selectionStyle=UITableViewCellSelectionStyleNone;
+        }
+    }
+    if ([indexPath row] < nodeCount ) {
+        
+        [cell.activity setHidden:YES];
+        [cell.activity stopAnimating];
+        [cell.title setHidden:NO];
+        [cell.subTitle setHidden:NO];
+        [cell.thumbnail setHidden:NO];
+        [cell.loadMore setHidden:YES];
+        
+        MAArticle *article = [_array objectAtIndex:indexPath.row];
+        
+        [cell.title setText:article.title];
+        [cell.subTitle setText:article.subTitle];
+        NSData *imageData = [[NSData alloc]initWithContentsOfURL:[NSURL URLWithString:article.thumbImagePath]];
+        [cell.thumbnail setImage:[UIImage imageWithData:imageData]];
+        CALayer *layer= [cell.thumbnail layer];
+        layer.borderColor=[[UIColor blackColor] CGColor];
+        layer.borderWidth=0.0f;
+        
+        //阴影偏移
+        layer.shadowOffset=CGSizeMake(1, 1);
+        //阴影透明度
+        layer.shadowOpacity=0.3;
+        //阴影半径
+        layer.shadowRadius=0.3;
+        
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        // Configure the cell...
+    }
     return cell;
 }
 
@@ -101,11 +148,23 @@ static BOOL _reloading=NO;
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // Navigation logic may go here. Create and push another view controller.
+    if ([indexPath row] == [_array count]  && [_array count]+1 > numbersPerPage) {
+        
+        MAArticle *article = [_array lastObject];
+        //更新时间最远的一条纪录
+        lastDateTime=article.fullUpdateTime;
+        _moreLoading = YES;
+        [self.articleTableView reloadData];
+        [self DownReload];
+        return;
+    }
+    
     
     UIStoryboard*  sb = [UIStoryboard storyboardWithName:@"MainStoryboard"
                                                   bundle:nil];
     MAArticleBodyVC* articleBody = [sb instantiateViewControllerWithIdentifier:@"MAArticleBodyVC"];
     [articleBody setCurentArticle:[_array objectAtIndex:indexPath.row]];
+    
     
     [self.navigationController pushViewController:articleBody animated:YES];
     
@@ -149,12 +208,13 @@ static BOOL _reloading=NO;
 #pragma mark -
 #pragma mark UIScrollViewDelegate Methods
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-//    ZNLog(@"DidScroll");
+    //    ZNLog(@"DidScroll");
     [_refreshHeaderView egoRefreshScrollViewDidScroll:scrollView];
 }
 
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
-//    ZNLog(@"EndDragging");
+    //    ZNLog(@"EndDragging");
+    lastDateTime=@"2099-01-01T00:00:00+08:00";
     [_refreshHeaderView egoRefreshScrollViewDidEndDragging:scrollView];
 }
 
@@ -164,7 +224,7 @@ static BOOL _reloading=NO;
 #pragma mark -
 #pragma mark EGORefreshTableHeaderDelegate Methods
 - (void)egoRefreshTableHeaderDidTriggerRefresh:(EGORefreshTableHeaderView *)view {
-//    ZNLog(@"DidTriggerRefresh");
+    //    ZNLog(@"DidTriggerRefresh");
     [self reloadTableViewDataSource];
     [self performSelector:@selector(doneLoadingTableViewData) withObject:nil afterDelay:1.0];
     
@@ -187,7 +247,7 @@ static BOOL _reloading=NO;
     ZNLog(@"reloadTableViewDataSource");
     self.upDown = @"up";
     
-    [self reload];
+    [self upReload];
     
     _reloading = YES;
     _articleTableView.contentOffset = CGPointMake(0, -55);
@@ -200,22 +260,51 @@ static BOOL _reloading=NO;
     
 }
 
+#pragma mark -
+#pragma mark tableView头部的下拉刷新
 
-- (void)reload {
+- (void)upReload {
     
-    [MAArticle getArticlesWithBlock:^(NSArray *articles, NSError *error) {
+    [MAArticle getArticlesWithBlock:^(NSMutableArray *articles, NSError *error) {
         if (error) {
             [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Error", nil) message:[error localizedDescription] delegate:nil cancelButtonTitle:nil otherButtonTitles:NSLocalizedString(@"OK", nil), nil] show];
         } else {
             NSLog(@"article=%d",[articles count]);
-            self.array = articles;
+            self.array=articles;
             [self.articleTableView reloadData];
             [self.activityIndicatorView stopAnimating];
             [self.activityIndicatorView setHidden:YES];
+            isNoData=NO;
+        }
+        
+    } Parameter:[MAToolBox formateStringFromTDateTime:lastDateTime]];
+}
+
+#pragma mark -
+#pragma mark tableView尾部的载入更多信息
+
+- (void)DownReload {
+    
+    [MAArticle getArticlesWithBlock:^(NSMutableArray *articles, NSError *error) {
+        if (error) {
+            [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Error", nil) message:[error localizedDescription] delegate:nil cancelButtonTitle:nil otherButtonTitles:NSLocalizedString(@"OK", nil), nil] show];
+        } else {
+            NSLog(@"article=%d",[articles count]);
+            MAArticle *result= [articles lastObject];
+            if ([articles count]==1 && [result.title isEqualToString:@"NODATAFOUND"]) {
+                NSLog(@"no data found");
+                isNoData=YES;
+                
+            }
+            else{
+                [self.array addObjectsFromArray:articles];
+            }
+            [self.articleTableView reloadData];
+            _moreLoading=NO;
             
         }
         
-    }];
+    } Parameter:[MAToolBox formateStringFromTDateTime:lastDateTime]];
     
 }
 @end
