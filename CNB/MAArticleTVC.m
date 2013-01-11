@@ -16,7 +16,6 @@
 @synthesize articleTableView=_articleTableView;
 @synthesize array=_array;
 @synthesize refreshHeaderView=_refreshHeaderView;
-@synthesize upDown=_upDown;
 @synthesize activityIndicatorView=_activityIndicatorView;
 
 //下拉更新更新标志
@@ -26,7 +25,7 @@ static NSString *lastDateTime=@"2099-01-01T00:00:00+08:00";
 //载入更多功能更新标志
 static BOOL _moreLoading=NO;
 //每次刷新TableView纪录数量
-static int numbersPerPage=4;
+static int numbersPerPage=10;
 //全部更新完成的标志
 static BOOL isNoData=NO;
 
@@ -165,7 +164,6 @@ static BOOL isNoData=NO;
     MAArticleBodyVC* articleBody = [sb instantiateViewControllerWithIdentifier:@"MAArticleBodyVC"];
     [articleBody setCurentArticle:[_array objectAtIndex:indexPath.row]];
     
-    
     [self.navigationController pushViewController:articleBody animated:YES];
     
 }
@@ -245,7 +243,6 @@ static BOOL isNoData=NO;
     //  should be calling your tableviews data source model to reload
     //  put here just for demo
     ZNLog(@"reloadTableViewDataSource");
-    self.upDown = @"up";
     
     [self upReload];
     

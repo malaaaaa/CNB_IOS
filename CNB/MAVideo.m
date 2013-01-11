@@ -15,7 +15,9 @@
 @synthesize introduction=_introduction;
 @synthesize updateTime=_updateTime;
 @synthesize shareURL=_shareURL;
-
+@synthesize fullUpdateTime=_fullUpdateTime;
+@synthesize thumbImagePath=_thumbImagePath;
+@synthesize webSite=_webSite;
 - (id)initWithAttributes:(NSDictionary *)attributes {
     self = [super init];
     if (!self) {
@@ -26,12 +28,15 @@
     _updateTime = [attributes   valueForKeyPath:@"updateTime"];
     _URL= [attributes valueForKeyPath:@"url"];
     _videoID = [attributes   valueForKeyPath:@"videoID"];
-     _shareURL = [attributes   valueForKeyPath:@"shareURL"];
-
+    _shareURL = [attributes   valueForKeyPath:@"shareURL"];
+    _fullUpdateTime=[attributes valueForKeyPath:@"fullUpdateTime"];
+    _thumbImagePath=[attributes valueForKeyPath:@"thumbImagePath"];
+//    _webSite=[attributes valueForKeyPath:@"webSite"];
     return self;
 }
-+ (void)getVideosWithBlock:(void (^)(NSArray *videoArray, NSError *error))block {
-    [[AFAppDotNetAPIClient sharedClient] getPath:@"video" parameters:nil success:^(AFHTTPRequestOperation *operation, id JSON) {
++ (void)getVideosWithBlock:(void (^)(NSMutableArray *videoArray, NSError *error))block Parameter:(NSString *)para{
+    NSString *path =[NSString stringWithFormat:@"%@/%@",@"video/afterUpdatetime",para];
+    [[AFAppDotNetAPIClient sharedClient] getPath:path parameters:nil success:^(AFHTTPRequestOperation *operation, id JSON) {
         NSMutableArray *mutableObjects=nil;
         //id body是为了处理服务端单条数据的JSON格式没有[]导致直接解析成NSArray失败而存在
         id body = [JSON valueForKeyPath:@"vVideo"];
@@ -57,11 +62,11 @@
         
         if (block) {
             
-            block([NSArray arrayWithArray:mutableObjects], nil);
+            block(mutableObjects, nil);
         }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         if (block) {
-            block([NSArray array], error);
+            block([NSMutableArray array], error);
         }
     }];
 }

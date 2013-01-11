@@ -12,6 +12,9 @@
 @synthesize title=_title;
 @synthesize note=_note;
 @synthesize thumbnail=_thumbnail;
+@synthesize activity=_activity;
+@synthesize loadMore=_loadMore;
+
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];

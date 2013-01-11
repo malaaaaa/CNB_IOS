@@ -1056,7 +1056,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_NAME = "蓝色骨头";
+				PRODUCT_NAME = "红旗下的蛋";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -1077,7 +1077,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
-				PRODUCT_NAME = "蓝色骨头";
+				PRODUCT_NAME = "红旗下的蛋";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};

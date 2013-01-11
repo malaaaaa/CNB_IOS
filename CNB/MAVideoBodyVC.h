@@ -23,6 +23,7 @@
 @property(nonatomic,strong) MAVideo *curVideo;
 @property(nonatomic,weak) IBOutlet UIButton *commentsButton;
 @property(nonatomic,weak) IBOutlet UIButton *shareButton;
+@property(nonatomic,weak) IBOutlet UILabel *updateTimeLabel;
 @property (nonatomic, strong) UMSocialControllerService *socialController;
 
 + (UIImage*) thumbnailImageForVideo:(NSURL *)videoURL atTime:(NSTimeInterval)time;

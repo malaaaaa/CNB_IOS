@@ -17,7 +17,10 @@
 @property(nonatomic,strong) NSString *introduction;
 @property(nonatomic,strong) NSString *updateTime;
 @property(nonatomic,strong) NSString *shareURL;
+@property(nonatomic,strong) NSString *fullUpdateTime;
+@property(nonatomic,strong) NSString *thumbImagePath;
+@property(nonatomic,strong) NSString *webSite;
 
 - (id)initWithAttributes:(NSDictionary *)attributes;
-+ (void)getVideosWithBlock:(void (^)(NSArray *videoArray, NSError *error))block;
++ (void)getVideosWithBlock:(void (^)(NSMutableArray *videoArray, NSError *error))block Parameter:(NSString *)para;
 @end

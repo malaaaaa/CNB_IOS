@@ -20,5 +20,4 @@
 @property (nonatomic,strong) NSMutableArray *array;
 @property (nonatomic,strong) EGORefreshTableHeaderView *refreshHeaderView;
 @property (nonatomic,weak) IBOutlet UIActivityIndicatorView *activityIndicatorView;
-@property (nonatomic,strong) NSString *upDown;
 @end

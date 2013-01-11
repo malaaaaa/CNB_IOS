@@ -10,7 +10,9 @@
 
 @implementation MAAppDelegate
 
-#define umeng_appkey @"50d901b25270155bd60000f8"
+
+#define umeng_appkey @"50efcd985270155e68000013"
+//#define umeng_appkey @"50d901b25270155bd60000f8"
 //#define umeng_appkey @"507fcab25270157b37000010"
 //- (void)dealloc
 //{

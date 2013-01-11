@@ -687,10 +687,10 @@ const CGFloat ktkDefaultToolbarHeight = 44;
     _socialBar.socialBarView.themeColor = UMSBarColorBlack;
     _socialBar.center = CGPointMake(160, 18);
     
-    _socialBar.socialData.shareText = @"#蓝色骨头App之相册分享#";
+    _socialBar.socialData.shareText = @"#红旗下的蛋App之相册分享#";
     _socialBar.socialData.shareImage=[dataSource_ imageAtIndex:currentIndex_];
     _socialBar.socialData.commentImage = [dataSource_ imageAtIndex:currentIndex_];
-    _socialBar.socialData.commentText = @"#蓝色骨头App#";
+    _socialBar.socialData.commentText = @"#红旗下的蛋App#";
     [socialData release];
     //Mawp_03
     //只有在竖屏下显示分享栏

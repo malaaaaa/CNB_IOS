@@ -16,8 +16,7 @@
 @interface MAVideoTVC : UITableViewController<EGORefreshTableHeaderDelegate,UIScrollViewDelegate>
 
 @property (nonatomic,weak) IBOutlet UITableView *videoTableView;
-@property (nonatomic,strong) NSArray *videoArray;
+@property (nonatomic,strong) NSMutableArray *videoArray;
 @property (nonatomic,strong) EGORefreshTableHeaderView *refreshHeaderView;
 @property (nonatomic,weak) IBOutlet UIActivityIndicatorView *activityIndicatorView;
-@property (nonatomic,strong) NSString *upDown;
 @end

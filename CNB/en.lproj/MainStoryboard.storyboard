@@ -19,11 +19,11 @@
             </objects>
             <point key="canvasLocation" x="746" y="-269"/>
         </scene>
-        <!--Navigation Controller - 图-->
+        <!--Navigation Controller - 相册-->
         <scene sceneID="B18-Dh-e7J">
             <objects>
                 <navigationController definesPresentationContext="YES" id="Be7-Py-5WS" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="图" image="tabbar_photo" id="pvL-OV-DbU"/>
+                    <tabBarItem key="tabBarItem" title="相册" image="tabbar_photo" id="pvL-OV-DbU"/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackOpaque"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="blackOpaque" prompted="NO"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="blackOpaque" id="ksk-Hy-ndH">
@@ -1725,7 +1725,7 @@ OH－YE－
                             <outlet property="delegate" destination="UEW-7K-tJS" id="dsB-Bh-Jug"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="更多" image="moreButtonActive.png" id="QaG-8J-z4c"/>
+                    <tabBarItem key="tabBarItem" title="更多" image="tabbar_more" id="QaG-8J-z4c"/>
                     <navigationItem key="navigationItem" title="更多" id="5fu-1b-4vF"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hpD-Fu-E6l" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1920,7 +1920,7 @@ OH－YE－
             </objects>
             <point key="canvasLocation" x="6268" y="1668"/>
         </scene>
-        <!--Table View Controller - Item-->
+        <!--Table View Controller - 专辑作品-->
         <scene sceneID="Olm-2K-RUz">
             <objects>
                 <tableViewController id="gdn-Gz-MIy" sceneMemberID="viewController">
@@ -3100,7 +3100,7 @@ OH－YE－
                         </connections>
                     </tableView>
                     <tabBarItem key="tabBarItem" title="Item" id="vFm-m5-lTA"/>
-                    <navigationItem key="navigationItem" id="VAH-5Y-9oF"/>
+                    <navigationItem key="navigationItem" title="专辑作品" id="VAH-5Y-9oF"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YT4-Ys-g2K" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -5623,28 +5623,29 @@ Cg
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </activityIndicatorView>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" restorationIdentifier="" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MACellVideo" rowHeight="75" id="D6q-nq-d8j" customClass="MACellVideo">
+                            <tableViewCell contentMode="scaleToFill" restorationIdentifier="" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MACellVideo" rowHeight="75" id="D6q-nq-d8j" customClass="MACellVideo">
                                 <rect key="frame" x="0.0" y="22" width="320" height="75"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="300" height="74"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="74"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="videoplay.png" translatesAutoresizingMaskIntoConstraints="NO" id="CgT-wl-lz8">
+                                        <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" image="videoplay.png" translatesAutoresizingMaskIntoConstraints="NO" id="CgT-wl-lz8">
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="70" id="I5B-Kv-mce"/>
                                                 <constraint firstAttribute="width" constant="70" id="xfP-MB-Zm8"/>
                                             </constraints>
                                         </imageView>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Titel" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="205" translatesAutoresizingMaskIntoConstraints="NO" id="gXd-Km-MNb">
+                                        <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Titel" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="205" translatesAutoresizingMaskIntoConstraints="NO" id="gXd-Km-MNb">
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="205" id="G26-op-weZ"/>
+                                                <constraint firstAttribute="height" constant="29" id="Stl-Ux-R0X"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </label>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="infor" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="205" translatesAutoresizingMaskIntoConstraints="NO" id="GLw-Wv-a4n">
+                                        <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="infor" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="205" translatesAutoresizingMaskIntoConstraints="NO" id="GLw-Wv-a4n">
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="29" id="cT4-i5-C01"/>
                                             </constraints>
@@ -5652,20 +5653,35 @@ Cg
                                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </label>
+                                        <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JPH-V9-4st">
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="251" id="Pak-35-ECz"/>
+                                                <constraint firstAttribute="height" constant="21" id="WqT-eM-V7t"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </label>
+                                        <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="kez-Qw-UQ7"/>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                                 <constraints>
-                                    <constraint firstItem="CgT-wl-lz8" firstAttribute="top" secondItem="D6q-nq-d8j" secondAttribute="top" constant="4" id="EKW-4y-T7D"/>
-                                    <constraint firstAttribute="bottom" secondItem="GLw-Wv-a4n" secondAttribute="bottom" constant="5" id="bdU-WH-9lM"/>
-                                    <constraint firstItem="gXd-Km-MNb" firstAttribute="leading" secondItem="D6q-nq-d8j" secondAttribute="leading" constant="91" id="chC-Yu-YwS"/>
+                                    <constraint firstItem="JPH-V9-4st" firstAttribute="centerX" secondItem="D6q-nq-d8j" secondAttribute="centerX" type="default" id="203-ld-kKz"/>
+                                    <constraint firstItem="gXd-Km-MNb" firstAttribute="leading" secondItem="D6q-nq-d8j" secondAttribute="leading" constant="91" id="4Ay-3d-C7W"/>
+                                    <constraint firstItem="kez-Qw-UQ7" firstAttribute="top" secondItem="D6q-nq-d8j" secondAttribute="top" constant="20" type="default" id="4NU-MH-877"/>
+                                    <constraint firstItem="CgT-wl-lz8" firstAttribute="centerY" secondItem="D6q-nq-d8j" secondAttribute="centerY" type="default" id="COV-7n-UXo"/>
+                                    <constraint firstItem="gXd-Km-MNb" firstAttribute="trailing" secondItem="GLw-Wv-a4n" secondAttribute="trailing" type="default" id="FeY-Ic-cQL"/>
+                                    <constraint firstItem="kez-Qw-UQ7" firstAttribute="centerY" secondItem="JPH-V9-4st" secondAttribute="centerY" type="default" id="JVw-if-7hC"/>
+                                    <constraint firstItem="gXd-Km-MNb" firstAttribute="top" secondItem="D6q-nq-d8j" secondAttribute="top" constant="4" id="Qu8-bj-Keb"/>
                                     <constraint firstItem="CgT-wl-lz8" firstAttribute="leading" secondItem="D6q-nq-d8j" secondAttribute="leading" constant="11" id="e6m-T6-63n"/>
-                                    <constraint firstItem="GLw-Wv-a4n" firstAttribute="trailing" secondItem="gXd-Km-MNb" secondAttribute="trailing" type="default" id="eQv-s5-oR8"/>
                                     <constraint firstItem="GLw-Wv-a4n" firstAttribute="leading" secondItem="gXd-Km-MNb" secondAttribute="leading" type="default" id="pKH-bM-LRU"/>
+                                    <constraint firstAttribute="trailing" secondItem="kez-Qw-UQ7" secondAttribute="trailing" constant="20" type="default" id="r1g-YO-yWk"/>
                                     <constraint firstItem="GLw-Wv-a4n" firstAttribute="top" secondItem="gXd-Km-MNb" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="sjf-fW-fhw"/>
-                                    <constraint firstItem="CgT-wl-lz8" firstAttribute="top" secondItem="gXd-Km-MNb" secondAttribute="top" type="default" id="t1O-Jh-jR7"/>
                                 </constraints>
                                 <connections>
+                                    <outlet property="activity" destination="kez-Qw-UQ7" id="gdA-fx-yQp"/>
+                                    <outlet property="loadMore" destination="JPH-V9-4st" id="DdV-1a-VeM"/>
                                     <outlet property="note" destination="GLw-Wv-a4n" id="hzS-c7-5y6"/>
                                     <outlet property="thumbnail" destination="CgT-wl-lz8" id="btB-Bq-eJF"/>
                                     <outlet property="title" destination="gXd-Km-MNb" id="G2i-ad-ZDg"/>
@@ -5858,24 +5874,35 @@ Cg
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="UpdateTime" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zct-u5-DlM">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="118" id="aQ0-Nt-t7y"/>
+                                    <constraint firstAttribute="height" constant="21" id="bKE-0J-TlY"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="HZY-Fn-Pab" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="0xI-fp-i83"/>
+                            <constraint firstItem="J8S-in-v7b" firstAttribute="centerX" secondItem="17j-h2-v7d" secondAttribute="centerX" type="default" id="Buc-Ii-7Qm"/>
                             <constraint firstItem="J8S-in-v7b" firstAttribute="top" secondItem="17j-h2-v7d" secondAttribute="top" constant="250" id="BxW-My-FVA"/>
                             <constraint firstItem="J8S-in-v7b" firstAttribute="bottom" secondItem="17j-h2-v7d" secondAttribute="bottom" type="default" id="I6t-Q8-1YE"/>
                             <constraint firstItem="HZY-Fn-Pab" firstAttribute="top" secondItem="luA-BE-2v2" secondAttribute="top" type="default" id="UXB-8W-qou"/>
                             <constraint firstItem="Ygg-Ib-ovA" firstAttribute="centerX" secondItem="luA-BE-2v2" secondAttribute="centerX" type="default" id="VEb-CP-9Wd"/>
-                            <constraint firstItem="J8S-in-v7b" firstAttribute="centerX" secondItem="17j-h2-v7d" secondAttribute="centerX" type="default" id="VhM-Ud-DQc"/>
                             <constraint firstItem="AOh-lQ-N3z" firstAttribute="top" secondItem="Ygg-Ib-ovA" secondAttribute="top" type="default" id="XB0-gO-7K2"/>
                             <constraint firstItem="AOh-lQ-N3z" firstAttribute="centerX" secondItem="HZY-Fn-Pab" secondAttribute="centerX" type="default" id="Zfb-WQ-nYG"/>
+                            <constraint firstItem="PER-bE-B1g" firstAttribute="top" secondItem="zct-u5-DlM" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="bD9-FC-GjE"/>
                             <constraint firstItem="J8S-in-v7b" firstAttribute="trailing" secondItem="PER-bE-B1g" secondAttribute="trailing" type="default" id="dzb-01-lyb"/>
                             <constraint firstItem="HZY-Fn-Pab" firstAttribute="leading" secondItem="luA-BE-2v2" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="e9E-Kz-SEY"/>
                             <constraint firstItem="luA-BE-2v2" firstAttribute="top" secondItem="17j-h2-v7d" secondAttribute="top" constant="201" id="fmx-X6-Btp"/>
                             <constraint firstItem="PER-bE-B1g" firstAttribute="leading" secondItem="J8S-in-v7b" secondAttribute="leading" type="default" id="g4n-zd-wux"/>
-                            <constraint firstItem="PER-bE-B1g" firstAttribute="top" secondItem="17j-h2-v7d" secondAttribute="top" constant="248" id="hhj-c2-0J0"/>
+                            <constraint firstItem="zct-u5-DlM" firstAttribute="top" secondItem="17j-h2-v7d" secondAttribute="top" constant="219" id="gup-HR-JNs"/>
                             <constraint firstItem="AOh-lQ-N3z" firstAttribute="baseline" secondItem="Ygg-Ib-ovA" secondAttribute="baseline" type="default" id="lV3-0e-GEB"/>
                             <constraint firstItem="HZY-Fn-Pab" firstAttribute="bottom" secondItem="luA-BE-2v2" secondAttribute="bottom" type="default" id="n0t-xk-rIO"/>
+                            <constraint firstItem="zct-u5-DlM" firstAttribute="leading" secondItem="17j-h2-v7d" secondAttribute="leading" constant="17" id="s7H-sh-EZy"/>
                             <constraint firstItem="Ygg-Ib-ovA" firstAttribute="top" secondItem="17j-h2-v7d" secondAttribute="top" constant="229" id="ve9-cZ-eA6"/>
                         </constraints>
                     </view>
@@ -5884,6 +5911,7 @@ Cg
                     <connections>
                         <outlet property="commentsButton" destination="luA-BE-2v2" id="7yP-3M-ILV"/>
                         <outlet property="shareButton" destination="HZY-Fn-Pab" id="2zM-As-CvK"/>
+                        <outlet property="updateTimeLabel" destination="zct-u5-DlM" id="MYR-ew-5pK"/>
                         <outlet property="view" destination="17j-h2-v7d" id="iU2-4B-vod"/>
                     </connections>
                 </viewController>
@@ -6327,104 +6355,16 @@ YI YE---YI YE---
         <image name="eddie.png" width="300" height="300"/>
         <image name="liuyuan.png" width="300" height="300"/>
         <image name="liuyue.png" width="300" height="300"/>
-        <image name="moreButtonActive.png" width="16" height="16"/>
         <image name="share" width="16" height="16"/>
         <image name="tabbar_album.png" width="30" height="30"/>
         <image name="tabbar_more" width="16" height="16"/>
         <image name="tabbar_photo" width="16" height="16"/>
         <image name="tabbar_text" width="16" height="16"/>
         <image name="tabbar_video" width="16" height="16"/>
-        <image name="videoplay.png" width="150" height="150"/>
+        <image name="videoplay.png" width="140" height="140"/>
         <image name="xiajia.png" width="300" height="300"/>
         <image name="zhangyongguang.png" width="300" height="300"/>
     </resources>
-    <classes>
-        <class className="KTThumbsViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/KTThumbsViewController.h"/>
-        </class>
-        <class className="MAArticleBodyVC" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MAArticleBodyVC.h"/>
-            <relationships>
-                <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
-            </relationships>
-        </class>
-        <class className="MAArticleTVC" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MAArticleTVC.h"/>
-            <relationships>
-                <relationship kind="outlet" name="activityIndicatorView" candidateClass="UIActivityIndicatorView"/>
-                <relationship kind="outlet" name="articleTableView" candidateClass="UITableView"/>
-            </relationships>
-        </class>
-        <class className="MABandMembersVC" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MABandMembersVC.h"/>
-            <relationships>
-                <relationship kind="outlet" name="beibei" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="cuijian" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="eddie" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="liuyuan" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="liuyue" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
-                <relationship kind="outlet" name="xiajia" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="zhangyongguang" candidateClass="UIImageView"/>
-            </relationships>
-        </class>
-        <class className="MACellArticle" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MACellArticle.h"/>
-            <relationships>
-                <relationship kind="outlet" name="activity" candidateClass="UIActivityIndicatorView"/>
-                <relationship kind="outlet" name="loadMore" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="subTitle" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="thumbnail" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="title" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="MACellVideo" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MACellVideo.h"/>
-            <relationships>
-                <relationship kind="outlet" name="note" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="thumbnail" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="title" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="MACellVideoComment" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MACellVideoComment.h"/>
-            <relationships>
-                <relationship kind="outlet" name="videoDescription" candidateClass="UITextView"/>
-                <relationship kind="outlet" name="videoTitle" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="MAConfigurationTVC" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MAConfigurationTVC.h"/>
-        </class>
-        <class className="MAPhotoAlbumVC" superclassName="KTThumbsViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MAPhotoAlbumVC.h"/>
-        </class>
-        <class className="MARootTabBarController" superclassName="UITabBarController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MARootTabBarController.h"/>
-        </class>
-        <class className="MAVideoBodyVC" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MAVideoBodyVC.h"/>
-            <relationships>
-                <relationship kind="action" name="showCommentsPage:"/>
-                <relationship kind="action" name="showSharePage:"/>
-                <relationship kind="outlet" name="commentsButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="shareButton" candidateClass="UIButton"/>
-            </relationships>
-        </class>
-        <class className="MAVideoCommentTVC" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MAVideoCommentTVC.h"/>
-        </class>
-        <class className="MAVideoTVC" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MAVideoTVC.h"/>
-            <relationships>
-                <relationship kind="outlet" name="activityIndicatorView" candidateClass="UIActivityIndicatorView"/>
-                <relationship kind="outlet" name="videoTableView" candidateClass="UITableView"/>
-            </relationships>
-        </class>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

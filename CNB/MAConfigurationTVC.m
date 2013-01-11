@@ -176,7 +176,7 @@
             picker.mailComposeDelegate = self;
             NSArray *array = [NSArray arrayWithObjects:@"malaaaaa@gmail.com", nil];
             [picker setToRecipients:array];
-            NSString *strVersion = @"蓝色骨头App 建议与意见";
+            NSString *strVersion = @"红旗下的蛋App 建议与意见";
             [picker setSubject:strVersion];
             // Fill out the email body text
             NSString *emailBody = @"";

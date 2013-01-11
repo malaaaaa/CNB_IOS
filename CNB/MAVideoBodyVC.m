@@ -17,6 +17,7 @@
 @synthesize curVideo=_curVideo;
 @synthesize commentsButton=_commentsButton;
 @synthesize shareButton=_shareButton;
+@synthesize updateTimeLabel=_updateTimeLabel;
 @synthesize socialController=_socialController;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -40,7 +41,7 @@
     NSLog(@"socialDataID=%@",socialDataID);
     UMSocialData *socialData = [[UMSocialData alloc] initWithIdentifier:socialDataID withTitle:nil];
     _socialController = [[UMSocialControllerServiceComment alloc] initWithUMSocialData:socialData];
-    
+    _updateTimeLabel.text=_curVideo.updateTime;
     /*
     NSString *shareText = [NSString stringWithFormat:@"分享 %d",[_socialController.socialDataService.socialData getNumber:UMSNumberShare]];
     [_shareButton setTitle:shareText forState:UIControlStateNormal];
