@@ -13,7 +13,7 @@
 
 #define umeng_appkey @"50efcd985270155e68000013"
 //#define umeng_appkey @"50d901b25270155bd60000f8"
-//#define umeng_appkey @"507fcab25270157b37000010"
+
 //- (void)dealloc
 //{
 //    [_window release];
@@ -29,6 +29,9 @@
     [UMSocialData setAppKey:umeng_appkey];
     //统计分析工具
     [MobClick startWithAppkey:umeng_appkey];
+    
+    //指定分享平台，如果使用默认全部则不需要这行及实现后面的shareToPlatforms方法
+    [UMSocialControllerService setSocialConfigDelegate:self];
     
     //手工指定下TabBarController代理，用于控制Bar切换事件
     UITabBarController *tabController =
@@ -72,5 +75,12 @@
         tabBarController.view.transform = CGAffineTransformIdentity;
         tabBarController.view.bounds = CGRectMake(0, 0, 320, 480);
     }
+}
+
+//指定分享平台
+- (NSArray *)shareToPlatforms
+{
+    NSArray *shareToArray = [NSArray arrayWithObjects:UMShareToTencent,UMShareToSina,UMShareToDouban,UMShareToSms,UMShareToEmail,nil];
+    return shareToArray;
 }
 @end

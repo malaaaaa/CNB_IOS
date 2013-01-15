@@ -174,7 +174,7 @@
         if ([mailClass canSendMail]) {
             MFMailComposeViewController *picker = [[MFMailComposeViewController alloc] init];
             picker.mailComposeDelegate = self;
-            NSArray *array = [NSArray arrayWithObjects:@"malaaaaa@gmail.com", nil];
+            NSArray *array = [NSArray arrayWithObjects:@"eggsundertheredflag@gmail.com", nil];
             [picker setToRecipients:array];
             NSString *strVersion = @"红旗下的蛋App 建议与意见";
             [picker setSubject:strVersion];

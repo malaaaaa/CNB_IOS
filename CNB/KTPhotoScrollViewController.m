@@ -675,7 +675,7 @@ const CGFloat ktkDefaultToolbarHeight = 44;
     }
     
     NSString *socialDataID =[NSString stringWithFormat:@"CNB_UMSociaData_Photo_%@",[self getImageIDByIndex:currentIndex_]];
-    NSString *socialDataTitle =[NSString stringWithFormat:@"CNB_UMSociaData_Photo_%@_Title",[self getImageIDByIndex:currentIndex_]];
+    NSString *socialDataTitle =[NSString stringWithFormat:@"CNB_UMSociaData_Photo_%@",[self getImageIDByIndex:currentIndex_]];
     UMSocialData *socialData = [[UMSocialData alloc] initWithIdentifier:socialDataID withTitle:socialDataTitle];
     
     _socialBar = [[UMSocialBar alloc] initWithUMSocialData:socialData withViewController:self];

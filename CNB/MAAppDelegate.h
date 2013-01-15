@@ -10,7 +10,7 @@
 #import "UMSocialBar.h"
 #import "MobClick.h"
 
-@interface MAAppDelegate : UIResponder <UIApplicationDelegate,UITabBarControllerDelegate>
+@interface MAAppDelegate : UIResponder <UIApplicationDelegate,UITabBarControllerDelegate,UMSocialConfigDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 
